@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiches de Lecture</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="global-nav">
+  <div class="nav-container">
+    <div class="nav-title">Fiches de Lecture</div>
+    <button class="dark-mode-toggle" id="dark-mode-btn" title="Activer le mode sombre">🌙</button>
+    <ul class="nav-links">
+      <li><a href="fiche_le_mal_rimbaud_v2.html">Le Mal</a></li>
+      <li><a href="fiche_ma_boheme_rimbaud.html" class="active">Ma Bohème</a></li>
+      <!-- Add new texts here: <li><a href="new_file.html">Text Title</a></li> -->
+    </ul>
+  </div>
+</div>
+
+<div class="app">
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('fiche',this)">Fiche de préparation</button>
+    <button class="tab" onclick="switchTab('notes',this)">Notes d'oral</button>
+  </div>
+
+  <!-- ===== PANEL FICHE ===== -->
+  <div class="panel active" id="panel-fiche">
+    <div class="header">
+      <h1>Ma Bohème (Fantaisie) — Arthur Rimbaud</h1>
+      <p>Cahiers de Douai (1870) · Poésie du XIXe siècle · Parcours : Émancipations créatrices</p>
+    </div>
+    <div class="barème">
+      <div class="pt">Lecture <span>/2</span></div>
+      <div class="pt">Commentaire linéaire <span>/8</span></div>
+      <div class="pt">Grammaire <span>/2</span></div>
+      <div class="pt">Œuvre <span>/3</span></div>
+      <div class="pt">Entretien <span>/5</span></div>
+    </div>
+
+    <div class="section">
+      <div class="sec-head"><span class="badge b-purple">1</span><h2>Situation du texte</h2></div>
+      <div class="sec-body">
+        <p>Arthur Rimbaud compose ce sonnet à l'automne 1870, à seize ans, au cours de l'une de ses fugues depuis Charleville. Il figure dans les <span class="cite">Cahiers de Douai</span>, recueil manuscrit adressé à son professeur Georges Izambard. Le sous-titre <em>Fantaisie</em> annonce d'emblée le registre : ni plainte romantique ni révolte politique, mais une célébration joyeuse et légère de la liberté par la marche et la poésie.</p>
+        <p>Le poème s'inscrit dans l'objet d'étude <em>La poésie du XIXe siècle au XXIe siècle</em> et le parcours <em>Émancipations créatrices</em> : la misère matérielle y devient le terreau d'une vocation poétique librement assumée. À mettre en regard avec <span class="cite">« Le Mal »</span>, autre sonnet du recueil, pour mesurer l'amplitude des registres chez Rimbaud.</p>
+        <p style="margin-top:8px;font-size:12.5px;color:var(--color-text-secondary);">Schéma des rimes :</p>
+        <div class="rhyme-grid">
+          <span class="rh rh-a">crevées — A</span><span class="rh rh-b">idéal — B</span><span class="rh rh-b">féal — B</span><span class="rh rh-a">rêvées — A</span>
+          <span class="rh rh-c">trou — C</span><span class="rh rh-d">course — D</span><span class="rh rh-d">Ourse — D</span><span class="rh rh-c">frou-frou — C</span>
+          <span class="rh rh-e">routes — E</span><span class="rh rh-e">gouttes — E</span><span class="rh rh-f">vigueur — F</span>
+          <span class="rh rh-a">fantastiques — G</span><span class="rh rh-a">élastiques — G</span><span class="rh rh-f">coeur — F</span>
+        </div>
+        <p style="margin-top:8px;font-size:12.5px;color:var(--color-text-secondary);">Tercets en EEF GGF : schéma atypique qui rompt avec le sonnet pétrarquiste — la forme elle-même joue la liberté.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-head"><span class="badge b-teal">2</span><h2>Lecture expressive</h2></div>
+      <div class="sec-body">
+        <div class="diction">
+          <div class="diction-tag">Entrain et légèreté dès le v.1</div>
+          <div class="diction-tag">Pause espiègle sur « Oh ! là ! là ! » (v.4)</div>
+          <div class="diction-tag">Sourire sur « Petit-Poucet rêveur » (v.6)</div>
+          <div class="diction-tag">Allongement doux sur « frou-frou » (v.8)</div>
+          <div class="diction-tag">Ralentissement méditatif aux tercets</div>
+          <div class="diction-tag">Chute légèrement burlesque : « élastiques » bien détaché</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-head"><span class="badge b-coral">3</span><h2>Problématique</h2></div>
+      <div class="sec-body">
+        <div class="pb">Comment Rimbaud transfigure-t-il la misère en ivresse poétique, faisant de la bohème errante une véritable émancipation créatrice ?</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-head"><span class="badge b-blue">4</span><h2>Explication linéaire — 4 mouvements</h2><span class="badge b-blue ml-auto">/8</span></div>
+      <div class="sec-body">
+
+        <div class="mouvement">
+          <div class="mv-title"><div class="mv-num">1</div>Vers 1–4 · La pauvreté transfigurée par le lyrisme</div>
+          <p>Le premier vers installe un cadre réaliste et délibérément trivial : <span class="cite">« les poings dans mes poches crevées »</span> est un geste concret, presque vulgaire, qui ancre le poème dans le quotidien d'un jeune fugitif. L'adjectif <span class="cite">« crevées »</span> suggère à la fois le dénuement matériel et une énergie qui déborde, qui crève les cadres.</p>
+          <p>Dès le vers 2, la métamorphose s'opère : <span class="cite">« Mon paletot aussi devenait idéal »</span> joue sur l'ambiguïté d'<em>idéal</em> — attribut du manteau devenu trop usé pour être réel, mais aussi adjectif platonicien renvoyant au monde des idées pures. L'imparfait de narration crée une distanciation tendre et légèrement ironique. L'apostrophe <span class="cite">« Muse ! »</span> et le terme médiéval <span class="cite">« féal »</span> (v.3) — vassalité au service de la poésie — élèvent d'un coup le vagabond au rang de chevalier servant des lettres. L'exclamation familière <span class="cite">« Oh ! là ! là ! »</span> (v.4) rompt aussitôt ce registre noble : l'autoportrait joue sur tous les registres à la fois.</p>
+          <div class="tags"><span class="procede">Réalisme trivial → élévation lyrique</span><span class="procede">Ambiguïté sémantique d'« idéal »</span><span class="procede">Apostrophe à la Muse</span><span class="procede">Archaïsme « féal »</span><span class="procede">Oralité / exclamation familière</span></div>
+        </div>
+
+        <div class="mouvement">
+          <div class="mv-title"><div class="mv-num">2</div>Vers 5–8 · La nuit comme demeure du poète</div>
+          <p>Le second quatrain joue sur l'intertextualité : <span class="cite">« Petit-Poucet rêveur »</span> (v.6) réécrit le conte de Perrault — au lieu de semer des cailloux pour retrouver son chemin, Rimbaud sème des <em>rimes</em>. L'adjectif <span class="cite">« rêveur »</span> transforme le personnage littéralement perdu en artiste volontairement errant. L'enjambement <span class="cite">« j'égrenais dans ma course / Des rimes »</span> mime par sa fracture le mouvement même de la marche.</p>
+          <p>La métaphore cosmique <span class="cite">« Mon auberge était à la Grande-Ourse »</span> (v.7) est saisissante : le ciel étoilé remplace le toit. Elle dit à la fois la pauvreté (pas d'auberge réelle) et la grandeur (l'univers entier comme foyer). L'onomatopée <span class="cite">« doux frou-frou »</span> (v.8) — mot rare, précieux — prête aux étoiles un bruissement textile, presque féminin : la nuit devient une présence sensuelle et bienveillante.</p>
+          <div class="tags"><span class="procede">Intertextualité (Perrault)</span><span class="procede">Réécriture subversive</span><span class="procede">Enjambement signifiant</span><span class="procede">Métaphore cosmique</span><span class="procede">Onomatopée / synesthésie</span></div>
+        </div>
+
+        <div class="mouvement">
+          <div class="mv-title"><div class="mv-num">3</div>Vers 9–11 · L'ivresse sensorielle de septembre</div>
+          <p>Les tercets marquent une pause contemplative : le poète s'arrête (<span class="cite">« assis au bord des routes »</span>) et écoute. La proposition relative <span class="cite">« Ces bons soirs de septembre où je sentais »</span> enchaîne deux subordonnées en <em>où</em> (v.10, v.12) qui déroulent une longue phrase nostalgique. La rosée sur le front (<span class="cite">« comme un vin de vigueur »</span>, v.11) est une métaphore sensorielle forte : la nature nourrit le poète comme le vin nourrit le corps — synesthésie du toucher et du goût, allitération en [v] (<em>vin, vigueur</em>) qui donne de l'énergie au vers.</p>
+          <p>L'adjectif <span class="cite">« bons »</span> révèle une mémoire affective heureuse, sans nostalgie mélancolique : c'est un passé que le poète revendique avec fierté.</p>
+          <div class="tags"><span class="procede">Subordonnées en « où » (relatives)</span><span class="procede">Synesthésie toucher/goût</span><span class="procede">Allitération en [v]</span><span class="procede">Métaphore de l'ivresse naturelle</span><span class="procede">Mémoire affective</span></div>
+        </div>
+
+        <div class="mouvement">
+          <div class="mv-title"><div class="mv-num">4</div>Vers 12–14 · La chute burlesque : les élastiques comme lyres</div>
+          <p>La chute du sonnet est l'un des moments les plus caractéristiques du génie rimbaldien. Les <span class="cite">« ombres fantastiques »</span> (v.12) maintiennent un registre lyrique et mystérieux ; puis la comparaison <span class="cite">« Comme des lyres, je tirais les élastiques / De mes souliers blessés »</span> produit un effet burlesque irrésistible. La lyre — instrument d'Apollon, symbole de la poésie — est ravalée à l'élastique d'une chaussure trouée.</p>
+          <p>Or ce rabaissement n'est pas une autodérision triste : il dit que le poète fait de la poésie avec n'importe quoi, que l'art naît du manque. La personnification <span class="cite">« souliers blessés »</span> projette sur les objets la douleur du marcheur, que le corps lui-même nie. La clausule <span class="cite">« un pied près de mon coeur »</span> est une image finale à double lecture : posture concrète du cordonnier improvisant, et métaphore du corps entier voué à la marche et à la création.</p>
+          <div class="tags"><span class="procede">Chute burlesque</span><span class="procede">Comparaison inversée (lyre → élastique)</span><span class="procede">Personnification pathétique</span><span class="procede">Registre élevé ≠ réalisme trivial</span><span class="procede">Image finale polysémique</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-head"><span class="badge b-amber">5</span><h2>Question de grammaire probable</h2><span class="badge b-amber ml-auto">/2</span></div>
+      <div class="sec-body">
+        <p><strong>Fait de langue :</strong> Les propositions subordonnées relatives introduites par <span class="cite">« où »</span> (v.10 et v.12).</p>
+        <p style="margin-top:8px;">Le pronom relatif <span class="cite">« où »</span> reprend l'antécédent <span class="cite">« Ces bons soirs de septembre »</span> (v.9) : il cumule une valeur temporelle (<em>quand</em>) et spatiale (<em>dans lesquels</em>), créant une ambiance enveloppante. Les deux relatives s'enchaînent en amplification : la première (v.10–11) développe la sensation physique, la seconde (v.12–14) la pratique poétique. Leur longueur mimétique prolonge l'instant, comme si le souvenir refusait de s'achever.</p>
+        <p style="margin-top:8px;font-style:italic;color:var(--color-text-secondary);font-size:13px;">Question attendue : « Identifiez la nature et la fonction des propositions introduites par "où" aux vers 10 et 12. Quel est leur antécédent ? Quelle valeur sémantique le pronom "où" apporte-t-il ici ? »</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-head"><span class="badge b-pink">6</span><h2>Ouverture vers l'entretien</h2><span class="badge b-pink ml-auto">/5</span></div>
+      <div class="sec-body">
+        <div class="piste"><div class="piste-num">1</div><p>En quoi ce poème illustre-t-il la notion d'<em>émancipation créatrice</em> propre au parcours ? La bohème n'est pas subie mais <em>choisie</em> comme condition de l'invention poétique : en quoi cette posture annonce-t-elle le « Je est un autre » de la Lettre du Voyant ?</p></div>
+        <div class="piste"><div class="piste-num">2</div><p>Comment le mélange des registres — lyrique, burlesque, trivial — est-il lui-même une forme d'émancipation formelle ? Comparer avec <span class="cite">« Le Mal »</span> (même recueil) qui mobilise la même forme du sonnet à des fins opposées.</p></div>
+        <div class="piste"><div class="piste-num">3</div><p>Quelle image du poète ce texte propose-t-il ? Le poète comme vagabond, comme artisan du bric-à-brac, comme héritier parodique du romantisme (la Muse, les étoiles) — en quoi cette figure est-elle nouvelle dans la tradition lyrique française ?</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PANEL NOTES ===== -->
+  <div class="panel" id="panel-notes">
+    <div class="notes-header">
+      <h2>Notes d'oral — Ma Bohème</h2>
+      <button class="export-btn" onclick="exportPDF()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Exporter en PDF
+      </button>
+    </div>
+    <div class="notes-meta">Rimbaud · <em>Cahiers de Douai</em> · 1870 · 14 vers · Sonnet · Bohème + Vocation poétique · Sous-titre : <em>Fantaisie</em></div>
+
+    <div class="note-block nb-purple">
+      <h3>Situation — 30 secondes</h3>
+      <div class="note-line"><div class="bullet"></div><p>Rimbaud, <strong>16 ans</strong>, fugue de Charleville → contexte biographique = matière du poème</p></div>
+      <div class="note-line"><div class="bullet"></div><p>Sous-titre <span class="note-kw">Fantaisie</span> → registre léger, joyeux, pas de révolte frontale (≠ Le Mal)</p></div>
+      <div class="note-line"><div class="bullet"></div><p>Parcours <span class="note-kw">Émancipations créatrices</span> → misère = condition, pas obstacle, de la création</p></div>
+      <div class="note-line"><div class="bullet"></div><p>Schéma des rimes atypique aux tercets (EEF GGF) → <span class="note-kw">la forme aussi joue la liberté</span></p></div>
+    </div>
+
+    <div class="note-block nb-teal">
+      <h3>Mouvement 1 · v.1–4 · Pauvreté → élévation</h3>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« poches crevées »</span> → trivial, concret, mais énergie qui déborde</p></div>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« idéal »</span> → double sens : usé jusqu'à l'immatériel / monde des idées platoniciennes</p></div>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« féal »</span> → archaïsme médiéval : chevalier servant de la Muse</p></div>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« Oh ! là ! là ! »</span> → rupture de ton, oralité, espièglerie → <span class="note-kw">mélange des registres volontaire</span></p></div>
+    </div>
+
+    <div class="note-block nb-coral">
+      <h3>Mouvement 2 · v.5–8 · Le ciel comme foyer</h3>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« Petit-Poucet rêveur »</span> → intertexte Perrault retourné : sème des rimes, pas des cailloux</p></div>
+      <div class="note-line"><div class="bullet"></div><p>Enjambement <span class="note-cite">« ma course / Des rimes »</span> → fracture = mouvement de la marche</p></div>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« Grande-Ourse »</span> → auberge cosmique : pauvreté + grandeur simultanées</p></div>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« doux frou-frou »</span> → onomatopée rare, étoiles = présence sensuelle et féminine</p></div>
+    </div>
+
+    <div class="note-block nb-blue">
+      <h3>Mouvement 3 · v.9–11 · Ivresse naturelle</h3>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« bons soirs »</span> → adjectif simple, mémoire heureuse (pas mélancolique)</p></div>
+      <div class="note-line"><div class="bullet"></div><p>Rosée = <span class="note-cite">« vin de vigueur »</span> → synesthésie toucher/goût, nature nourricière</p></div>
+      <div class="note-line"><div class="bullet"></div><p>Allitération [v] : <em>vin, vigueur</em> → énergie phonique</p></div>
+      <div class="note-line"><div class="bullet"></div><p class="note-it">⚠ GRAMMAIRE : subordonnées relatives en « où » (v.10, 12) → antécédent « Ces bons soirs de septembre » → valeur temporelle + spatiale cumulée</p></div>
+    </div>
+
+    <div class="note-block nb-amber">
+      <h3>Mouvement 4 · v.12–14 · La chute burlesque</h3>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« ombres fantastiques »</span> → registre lyrique maintenu… puis retournement</p></div>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« Comme des lyres… élastiques »</span> → <span class="note-kw">comparaison burlesque</span> : lyre (Apollon) → élastique de godasse trouée</p></div>
+      <div class="note-line"><div class="bullet"></div><p>Mais : l'art naît du manque → pas d'autodérision triste, <span class="note-kw">revendication</span></p></div>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« souliers blessés »</span> → personnification : le corps souffre, mais le poète chante</p></div>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-cite">« un pied près de mon coeur »</span> → image finale double : geste concret + corps dévoué à la marche/création</p></div>
+    </div>
+
+    <div class="note-block nb-pink">
+      <h3>Entretien — 3 angles</h3>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-kw">Émancipation créatrice</span> : bohème <em>choisie</em> comme condition de l'art → lien avec « Je est un autre » (Lettre du Voyant, 1871)</p></div>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-kw">Comparaison dans le recueil</span> : même forme (sonnet) que <em>Le Mal</em> → registres opposés. Montrer la diversité de Rimbaud.</p></div>
+      <div class="note-line"><div class="bullet"></div><p><span class="note-kw">Figure du poète</span> : vagabond, artisan du bric-à-brac, héritier parodique du romantisme → nouveau dans la tradition lyrique française</p></div>
+    </div>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
