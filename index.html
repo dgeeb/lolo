@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiches de Lecture - Accueil</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .home {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .home-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg, 16px);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .home-card h1 {
+      margin-bottom: 0.4rem;
+      color: var(--text-primary);
+    }
+
+    .home-card p {
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .home-links {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .home-link {
+      display: block;
+      text-decoration: none;
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      font-weight: 600;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .home-link:hover {
+      transform: translateY(-1px);
+      border-color: var(--purple);
+    }
+  </style>
+</head>
+<body>
+  <div class="global-nav">
+    <div class="nav-container">
+      <div class="nav-title">Fiches de Lecture</div>
+      <button class="dark-mode-toggle" id="dark-mode-btn" title="Activer le mode sombre">🌙</button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="fiche_le_mal_rimbaud_v2.html">Le Mal</a></li>
+        <li><a href="fiche_ma_boheme_rimbaud.html">Ma Bohème</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main class="home">
+    <section class="home-card">
+      <h1>Bienvenue</h1>
+      <p>Accédez directement aux fiches de lecture en ligne.</p>
+      <div class="home-links">
+        <a class="home-link" href="fiche_le_mal_rimbaud_v2.html">Le Mal — Arthur Rimbaud</a>
+        <a class="home-link" href="fiche_ma_boheme_rimbaud.html">Ma Bohème — Arthur Rimbaud</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
