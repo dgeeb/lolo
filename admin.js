@@ -3,7 +3,8 @@
 // Le contenu est écrit directement dans le repo via l'API GitHub.
 
 const ADMIN = (() => {
-  const HASH_KEY   = 'lolo_admin_hash';
+  // Hash SHA-256 du mot de passe (avec sel 'lolo-salt-2026'). Ne pas modifier.
+  const STORED_HASH = '61570811ecb276b96ca0fff57f39d5286994ffd2d66efb0961b5fb474a483834';
   const TOKEN_KEY  = 'lolo_gh_token';
   const REPO_OWNER = 'dgeeb';
   const REPO_NAME  = 'lolo';
@@ -71,57 +72,24 @@ const ADMIN = (() => {
   }
 
   async function handleFabClick() {
-    const storedHash = localStorage.getItem(HASH_KEY);
-
-    if (!storedHash) {
-      // ── First time: create a password ──────────────────────────────────────
-      openModal('Créer un mot de passe', `
-        <p>Première utilisation. Choisissez un mot de passe pour protéger le mode édition.</p>
-        <input type="password" id="a-pwd1" placeholder="Mot de passe" autocomplete="new-password">
-        <input type="password" id="a-pwd2" placeholder="Confirmer le mot de passe" autocomplete="new-password">
-        <button id="a-submit">Créer le mot de passe</button>
-      `);
-      document.getElementById('a-submit').addEventListener('click', async () => {
-        const p1 = document.getElementById('a-pwd1').value;
-        const p2 = document.getElementById('a-pwd2').value;
-        if (!p1)        return showToast('Mot de passe requis', 'error');
-        if (p1 !== p2)  return showToast('Les mots de passe ne correspondent pas', 'error');
-        if (p1.length < 4) return showToast('Mot de passe trop court (4 caractères min.)', 'error');
-        localStorage.setItem(HASH_KEY, await hashPassword(p1));
+    openModal('Mode édition', `
+      <p>Entrez le mot de passe pour activer l'édition des fiches.</p>
+      <input type="password" id="a-pwd" placeholder="Mot de passe" autocomplete="current-password">
+      <button id="a-submit">Déverrouiller</button>
+    `);
+    const submit = document.getElementById('a-submit');
+    submit.addEventListener('click', async () => {
+      const pwd = document.getElementById('a-pwd').value;
+      if (await hashPassword(pwd) === STORED_HASH) {
         closeModal();
         unlock();
-      });
-
-    } else {
-      // ── Normal unlock ───────────────────────────────────────────────────────
-      openModal('Mode édition', `
-        <p>Entrez le mot de passe pour activer l'édition des fiches.</p>
-        <input type="password" id="a-pwd" placeholder="Mot de passe" autocomplete="current-password">
-        <button id="a-submit">Déverrouiller</button>
-        <p class="admin-hint">Mot de passe oublié ? <a href="#" id="a-reset-pwd">Réinitialiser</a></p>
-      `);
-      const submit = document.getElementById('a-submit');
-      submit.addEventListener('click', async () => {
-        const pwd = document.getElementById('a-pwd').value;
-        if (await hashPassword(pwd) === localStorage.getItem(HASH_KEY)) {
-          closeModal();
-          unlock();
-        } else {
-          showToast('Mot de passe incorrect', 'error');
-        }
-      });
-      document.getElementById('a-pwd').addEventListener('keydown', e => {
-        if (e.key === 'Enter') submit.click();
-      });
-      document.getElementById('a-reset-pwd').addEventListener('click', e => {
-        e.preventDefault();
-        if (confirm('Réinitialiser le mot de passe ? Vous devrez en créer un nouveau.')) {
-          localStorage.removeItem(HASH_KEY);
-          closeModal();
-          showToast('Réinitialisé. Cliquez sur ✏️ pour créer un nouveau mot de passe.');
-        }
-      });
-    }
+      } else {
+        showToast('Mot de passe incorrect', 'error');
+      }
+    });
+    document.getElementById('a-pwd').addEventListener('keydown', e => {
+      if (e.key === 'Enter') submit.click();
+    });
   }
 
   function unlock() {
