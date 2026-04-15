@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiches de préparation — EAF 2026</title>
+  <style>
+    /* ==============================
+       VARIABLES & RESET
+    ============================== */
+    :root {
+      --text-secondary: #666;
+      --color-text-secondary: #666;
+      --bg-secondary: #fff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 11pt;
+      color: #333;
+      background: white;
+      line-height: 1.5;
+    }
+
+    /* ==============================
+       SCREEN WRAPPER
+    ============================== */
+    @media screen {
+      body { background: #d0d0d0; }
+      .cover,
+      .fiche {
+        background: white;
+        max-width: 860px;
+        margin: 20px auto;
+        padding: 30px 36px;
+        box-shadow: 0 2px 10px rgba(0,0,0,.18);
+        border-radius: 6px;
+      }
+    }
+
+    /* ==============================
+       COVER PAGE
+    ============================== */
+    .cover {
+      text-align: center;
+      padding: 70px 40px;
+      border-bottom: 2px solid #ccc;
+      page-break-after: always;
+    }
+    .cover h1 {
+      font-size: 24pt;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .cover .sub {
+      font-size: 12.5pt;
+      color: #555;
+      margin-bottom: 35px;
+    }
+    .cover .toc {
+      list-style: none;
+      display: inline-block;
+      text-align: left;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 16px 24px;
+      background: #fafafa;
+    }
+    .cover .toc li {
+      padding: 4px 0;
+      font-size: 10.5pt;
+      color: #444;
+      border-bottom: 1px solid #eee;
+    }
+    .cover .toc li:last-child { border-bottom: none; }
+    .cover .toc li::before { content: "→  "; color: #888; font-weight: 600; }
+    .cover .toc-group {
+      font-size: 9pt;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 10px;
+      margin-bottom: 2px;
+      padding: 0;
+    }
+    .cover .toc-group::before { content: ""; }
+    .cover .toc-group:first-child { margin-top: 0; }
+
+    /* ==============================
+       FICHE CONTAINER
+    ============================== */
+    .fiche {
+      page-break-before: always;
+    }
+
+    /* ==============================
+       HEADER
+    ============================== */
+    .header {
+      background: #ededed;
+      border-left: 5px solid #666;
+      padding: 11px 16px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+    }
+    .header h1 {
+      font-size: 15pt;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.2;
+    }
+    .header p {
+      font-size: 9.5pt;
+      color: #555;
+      margin-top: 3px;
+    }
+
+    /* ==============================
+       BARÈME
+    ============================== */
+    .barème {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+      padding: 8px 10px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .pt {
+      font-size: 9pt;
+      color: #555;
+      padding: 3px 9px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .pt span { font-weight: 700; color: #333; }
+
+    /* ==============================
+       SECTIONS
+    ============================== */
+    .section {
+      margin-bottom: 11px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: #f3f3f3;
+      border-bottom: 1px solid #ddd;
+    }
+    .sec-head h2 {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .ml-auto { margin-left: auto; }
+
+    /* ==============================
+       BADGES (all gray)
+    ============================== */
+    .badge,
+    .b-purple, .b-teal, .b-coral, .b-blue, .b-amber, .b-pink {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #777;
+      color: #fff;
+      font-size: 8.5pt;
+      font-weight: 700;
+      padding: 0 3px;
+      white-space: nowrap;
+    }
+
+    /* ==============================
+       SEC-BODY
+    ============================== */
+    .sec-body {
+      padding: 10px 14px;
+    }
+    .sec-body > p {
+      margin-bottom: 6px;
+      font-size: 10.5pt;
+    }
+    .sec-body > p:last-child { margin-bottom: 0; }
+
+    /* ==============================
+       CITATIONS
+    ============================== */
+    .cite {
+      font-style: italic;
+      color: #2a2a2a;
+      background: #f0f0f0;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+
+    /* ==============================
+       DICTION TAGS
+    ============================== */
+    .diction { display: flex; flex-direction: column; gap: 4px; }
+    .diction-tag {
+      background: #f8f8f8;
+      border-left: 2px solid #bbb;
+      padding: 4px 9px;
+      font-size: 10pt;
+      color: #333;
+    }
+
+    /* ==============================
+       PROBLÉMATIQUE
+    ============================== */
+    .pb {
+      border-left: 4px solid #888;
+      padding: 9px 13px;
+      background: #f7f7f7;
+      font-style: italic;
+      font-size: 11pt;
+      color: #222;
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* ==============================
+       MOUVEMENTS
+    ============================== */
+    .mouvement {
+      border-left: 3px solid #ccc;
+      padding-left: 11px;
+      margin-bottom: 12px;
+    }
+    .mouvement:last-child { margin-bottom: 0; }
+    .mv-title {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 10.5pt;
+      color: #1a1a1a;
+      margin-bottom: 5px;
+    }
+    .mv-num {
+      min-width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #888;
+      color: #fff;
+      font-size: 9pt;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .mouvement > p {
+      font-size: 10.5pt;
+      margin-bottom: 5px;
+    }
+    .mouvement > p:last-of-type { margin-bottom: 0; }
+
+    /* ==============================
+       PROCÉDÉ TAGS
+    ============================== */
+    .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+    .procede {
+      border: 1px solid #bbb;
+      border-radius: 10px;
+      padding: 2px 8px;
+      font-size: 8.5pt;
+      color: #444;
+    }
+
+    /* ==============================
+       PISTES (entretien)
+    ============================== */
+    .piste { display: flex; gap: 9px; margin-bottom: 8px; }
+    .piste:last-child { margin-bottom: 0; }
+    .piste-num {
+      min-width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #888;
+      color: #fff;
+      font-size: 9pt;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .piste p { font-size: 10.5pt; margin-bottom: 0 !important; }
+
+    /* ==============================
+       RHYME GRID (Ma Bohème)
+    ============================== */
+    .rhyme-grid { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0; }
+    .rh { border: 1px solid #ccc; border-radius: 3px; padding: 1px 6px; font-size: 9pt; color: #555; }
+    .rh-a, .rh-b, .rh-c, .rh-d, .rh-e, .rh-f, .rh-g { background: #f9f9f9; }
+
+    /* ==============================
+       HIDE VIDEOS
+    ============================== */
+    .video-container, .video-section { display: none !important; }
+
+    /* ==============================
+       INLINE STYLE OVERRIDES
+    ============================== */
+    /* Italic notes in grammar sections */
+    p[style*="italic"] { font-style: italic; color: #666; font-size: 9.5pt; }
+
+    /* ==============================
+       PRINT RULES
+    ============================== */
+    @media print {
+      body {
+        background: white;
+        font-size: 10pt;
+        color: #2d2d2d;
+      }
+      .cover {
+        padding: 60px 30px;
+        page-break-after: always;
+        border-bottom: none;
+      }
+      .fiche {
+        page-break-before: always;
+        padding: 0;
+      }
+      @page {
+        margin: 2cm 1.8cm;
+        size: A4;
+      }
+      .section { break-inside: auto; }
+      .mouvement { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =========================================================
+     PAGE DE GARDE
+========================================================= -->
+<div class="cover">
+  <h1>Fiches de préparation</h1>
+  <p class="sub">Bac de français — Oral EAF 2026</p>
+
+  <ul class="toc">
+    <li class="toc-group">Théâtre — Mensonge et comédie</li>
+    <li>Le Menteur — Acte I, scène 3 &nbsp;·&nbsp; Corneille</li>
+    <li>Le Menteur — Acte III, scène 5 &nbsp;·&nbsp; Corneille</li>
+    <li>Le Menteur — Acte V, scènes II–III &nbsp;·&nbsp; Corneille</li>
+    <li>On ne badine pas avec l'amour — III, 3 &nbsp;·&nbsp; Musset</li>
+    <li class="toc-group">Poésie — Impressionnisme &amp; Symbolisme</li>
+    <li>Colloque sentimental &nbsp;·&nbsp; Verlaine</li>
+    <li class="toc-group">Poésie — Émancipations créatrices</li>
+    <li>Le Mal &nbsp;·&nbsp; Rimbaud</li>
+    <li>Ma Bohème (Fantaisie) &nbsp;·&nbsp; Rimbaud</li>
+  </ul>
+</div>
+
+
+<!-- =========================================================
+     FICHE 1 — LE MENTEUR I.3
+========================================================= -->
+<div class="fiche">
+
+  <div class="header">
+    <h1>Le Menteur — Acte I, Scène 3</h1>
+    <p>Pierre Corneille (1644) · Théâtre du XVIIe au XXIe siècle · Parcours : Mensonge et comédie</p>
+  </div>
+
+  <div class="barème">
+    <div class="pt">Lecture <span>/2</span></div>
+    <div class="pt">Commentaire linéaire <span>/8</span></div>
+    <div class="pt">Grammaire <span>/2</span></div>
+    <div class="pt">Œuvre <span>/3</span></div>
+    <div class="pt">Entretien <span>/5</span></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">1</span><h2>Situation du texte</h2></div>
+    <div class="sec-body">
+      <p><strong>Auteur :</strong> Pierre Corneille (1606–1684), dramaturge du XVIIe siècle, célèbre pour ses tragédies (<span class="cite">Le Cid</span>, 1637) mais aussi auteur de comédies galantes.</p>
+      <p><strong>Œuvre :</strong> <span class="cite">Le Menteur</span> (1644), comédie en cinq actes en alexandrins, inspirée de <em>La Verdad sospechosa</em> de Ruiz de Alarcón. Elle met en scène Dorante, jeune Parisien brillant et menteur invétéré, dont les inventions créent quiproquos et complications amoureuses.</p>
+      <p><strong>Contexte de la scène :</strong> Dès l'acte I, scène 3 (exposition), Dorante — simple étudiant en droit revenu de Poitiers — rencontre Clarice aux jardins des Tuileries et, pour la séduire, s'invente un glorieux passé de soldat. Son valet Cliton, seul à connaître la vérité, intervient en aparté.</p>
+      <p><strong>Parcours associé :</strong> <em>Mensonge et comédie</em> — le mensonge n'est pas condamné mais érigé en ressort comique et en art de vivre.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">2</span><h2>Lecture expressive</h2></div>
+    <div class="sec-body">
+      <div class="diction">
+        <div class="diction-tag">Dorante : ton assuré, éloquent, légèrement grandiloquent</div>
+        <div class="diction-tag">Cliton : ton pressé, chuchoté (aparté), indigné</div>
+        <div class="diction-tag">Clarice : brève, admirative — pause avant sa question</div>
+        <div class="diction-tag">Rythme lent sur les tirades épiques de Dorante</div>
+        <div class="diction-tag">Accélération lors des échanges maître/valet</div>
+        <div class="diction-tag">Pause après <span class="cite">« Tais-toi, misérable »</span></div>
+        <div class="diction-tag">Emphase sur <span class="cite">« Attaqué par vos yeux »</span></div>
+        <div class="diction-tag">Soigner la césure des alexandrins (6//6)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">3</span><h2>Problématique</h2></div>
+    <div class="sec-body">
+      <div class="pb">Comment le mensonge de Dorante, à la fois héroïque et comique, révèle-t-il la parole comme véritable art de la séduction ?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">4</span><h2>Explication linéaire — 3 mouvements</h2><span class="badge ml-auto">/8</span></div>
+    <div class="sec-body">
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">1</div>La construction d'un héros — le mensonge comme séduction (v. 1–15)</div>
+        <p>Dorante s'ouvre sur une <strong>personnification pathétique</strong> : <span class="cite">« le malheur qui partout m'accompagne »</span> — il se pose en victime du destin, registre quasi tragique qui vise à susciter la pitié de Clarice. La précision temporelle <span class="cite">« depuis un an entier »</span> et l'accumulation <span class="cite">« jour et nuit », « en tous lieux, au bal, aux promenades »</span> construisent un amant dévoué jusqu'à l'obsession.</p>
+        <p>Dorante enfle ensuite son récit guerrier : <span class="cite">« Je m'y suis fait quatre ans craindre comme un tonnerre »</span> — la <strong>comparaison épique</strong> et l'hyperbole temporelle exhibent l'emballement du mensonge. La triple négation <span class="cite">« Il ne s'est fait combats, ni sièges importants… n'ont jamais remporté de victoire »</span> est un procédé paradoxal : en niant l'existence de victoires sans lui, Dorante s'érige en héros indispensable. La <strong>métonymie</strong> <span class="cite">« cette main »</span> désigne son courage par une partie du corps — effet de distanciation héroïque. L'aparté de Cliton <span class="cite">« Que lui va-t-il conter ? »</span> active la <strong>double énonciation</strong> : le public devient complice du mensonge.</p>
+        <div class="tags">
+          <span class="procede">Hyperbole</span>
+          <span class="procede">Registre épique</span>
+          <span class="procede">Métonymie « cette main »</span>
+          <span class="procede">Accumulation</span>
+          <span class="procede">Aparté / double énonciation</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">2</div>L'aparté comique — Cliton, voix de la vérité (échange maître/valet)</div>
+        <p>La didascalie <span class="cite">« le tirant par la basque »</span> instaure un <strong>comique de geste</strong> : le valet tire la veste de son maître — image basse contrastant avec le registre épique qui précède. La <strong>stichomythie</strong> (répliques courtes et rapides) accélère le rythme et crée la tension comique. Cliton interroge avec une question rhétorique : <span class="cite">« Savez-vous bien, Monsieur, que vous extravaguez ? »</span> — le vouvoiement poli et le terme rare <em>extravaguez</em> créent un effet burlesque. La vérité (Poitiers, le retour de la veille) est énoncée platement, sans ornement, renforçant par contraste l'absurdité du mensonge.</p>
+        <p>Les injonctions de Dorante — <span class="cite">« Tais-toi », « misérable », « maraud »</span> — révèlent son irritation et fragilisent momentanément sa posture héroïque. Le rapport hiérarchique maître/valet est mis à nu : Dorante perd brièvement le contrôle de sa mise en scène.</p>
+        <div class="tags">
+          <span class="procede">Comique de geste (didascalie)</span>
+          <span class="procede">Stichomythie</span>
+          <span class="procede">Registre familier vs soutenu</span>
+          <span class="procede">Comique de situation</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">3</div>La reconquête galante — quand le mensonge se mue en déclaration (vers finaux)</div>
+        <p>Dorante reprend la main avec adresse avant d'opérer un <strong>pivot rhétorique</strong> : la rencontre amoureuse devient cause de sa reconversion. La <strong>métaphore filée guerrière/amoureuse</strong> forme le cœur de la tirade : <span class="cite">« Attaqué par vos yeux, je leur rendis les armes ; / Je me fis prisonnier de tant d'aimables charmes »</span>. Le vocabulaire militaire (attaqué, armes, prisonnier) est transposé au registre amoureux — procédé précieux qui magnifie Clarice en conquérante et Dorante en vaincu consentant.</p>
+        <p>L'<strong>énumération</strong> <span class="cite">« Vaincre dans les combats, commander dans l'armée, / De mille exploits fameux enfler ma renommée »</span> — tout cède à l'amour. Le verbe <span class="cite">« Cédèrent »</span> (passé simple, énergique) clôt la tirade sur une victoire paradoxale : Dorante triomphe en se déclarant vaincu. Le mensonge a parfaitement rempli sa fonction séductive.</p>
+        <div class="tags">
+          <span class="procede">Métaphore filée guerre→amour</span>
+          <span class="procede">Registre précieux et galant</span>
+          <span class="procede">Chiasme (gloire guerrière / capitulation amoureuse)</span>
+          <span class="procede">Amplification lyrique</span>
+          <span class="procede">Pivot rhétorique</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">5</span><h2>Question de grammaire probable</h2><span class="badge ml-auto">/2</span></div>
+    <div class="sec-body">
+      <p><strong>Fait de langue : les types de négation</strong></p>
+      <p>— <strong>Négation totale</strong> <span class="cite">« il ne s'est fait combats, ni sièges »</span> : <em>ni…ni</em> nie l'ensemble des éléments coordonnés.</p>
+      <p>— <strong>Négation absolue</strong> <span class="cite">« n'ont jamais remporté de victoire »</span> : l'adverbe <em>jamais</em> renforce l'universalité du déni, produisant un effet hyperbolique.</p>
+      <p>— <strong>Négation restrictive</strong> (ne…que) <span class="cite">« Vous n'avez que de moi reçu des sérénades »</span> : valeur d'exclusivité — équivalent de « seulement », elle n'est pas une vraie négation mais une restriction.</p>
+      <p>— <strong>Négation dans la proposition infinitive</strong> <span class="cite">« je n'ai pu trouver que cette occasion »</span> : combinaison de la négation et de la restriction.</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--text-secondary);font-size:13px;">Question attendue : « Dans le vers "Vous n'avez que de moi reçu des sérénades", identifiez la tournure négative et expliquez sa valeur. »</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">6</span><h2>Ouverture vers l'entretien</h2><span class="badge ml-auto">/5</span></div>
+    <div class="sec-body">
+      <div class="piste"><div class="piste-num">1</div><p><strong>Le mensonge comme talent :</strong> Corneille ne condamne pas son personnage — Cliton dira en clôture <span class="cite">« Par un si rare exemple apprenez à mentir »</span>. En quoi cette scène inaugure-t-elle une réhabilitation du mensonge comme signe d'intelligence et d'éloquence plutôt que de vice moral ?</p></div>
+      <div class="piste"><div class="piste-num">2</div><p><strong>Théâtre dans le théâtre :</strong> Dorante est un véritable metteur en scène de lui-même — il improvise, ajuste, dirige la réaction de son public. Dans quelle mesure ce personnage est-il un double du dramaturge, et le mensonge une métaphore de l'illusion théâtrale ?</p></div>
+      <div class="piste"><div class="piste-num">3</div><p><strong>La comédie classique :</strong> <em>Le Menteur</em> s'éloigne de la farce traditionnelle en donnant un héros noble, éloquent, dans un cadre mondain galant. Comment Corneille renouvelle-t-il la comédie du XVIIe siècle ?</p></div>
+    </div>
+  </div>
+
+</div><!-- /fiche 1 -->
+
+
+<!-- =========================================================
+     FICHE 2 — LE MENTEUR III.5
+========================================================= -->
+<div class="fiche">
+
+  <div class="header">
+    <h1>Le Menteur — Acte III, scène 5</h1>
+    <p>Pierre Corneille · Théâtre du XVIIe au XXIe siècle · Parcours : Mensonge et comédie</p>
+  </div>
+
+  <div class="barème">
+    <div class="pt">Lecture <span>/2</span></div>
+    <div class="pt">Commentaire linéaire <span>/8</span></div>
+    <div class="pt">Grammaire <span>/2</span></div>
+    <div class="pt">Œuvre <span>/3</span></div>
+    <div class="pt">Entretien <span>/5</span></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">1</span><h2>Situation du texte</h2></div>
+    <div class="sec-body">
+      <p><strong>Auteur :</strong> Pierre Corneille (1606–1684), dramaturge classique du XVIIe siècle, auteur du <em>Cid</em>, d'<em>Horace</em> et de <em>L'Illusion comique</em>.</p>
+      <p><strong>Œuvre :</strong> <em>Le Menteur</em>, comédie en cinq actes et en vers, représentée en <strong>1644</strong>. Corneille s'inspire d'une pièce espagnole, <em>La Verdad sospechosa</em> de Lope de Vega, en adaptant l'intrigue au goût classique français.</p>
+      <p><strong>Situation de l'extrait :</strong> À l'acte III, scène 5, Clarice et Lucrèce ont échangé leurs identités pour piéger Dorante : il croit s'adresser à Lucrèce alors qu'il parle à Clarice. Elle le confronte à ses mensonges et dresse, en fin d'extrait, un portrait accablant du séducteur fanfaron.</p>
+      <p><strong>Objet d'étude :</strong> Le théâtre du XVIIe au XXIe siècle · <strong>Parcours :</strong> Mensonge et comédie</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">2</span><h2>Lecture expressive</h2></div>
+    <div class="sec-body">
+      <div class="diction">
+        <div class="diction-tag">Stichomythie initiale — répliques courtes, rythme de joute. Alterner les voix nettement, tempo soutenu.</div>
+        <div class="diction-tag">Apartés (Clarice ↔ Lucrèce) — voix plus basse, ton de confidence et de complicité, sourire ironique.</div>
+        <div class="diction-tag"><span class="cite">« Que le foudre à vos yeux m'écrase si je mens ! »</span> — emphase théâtrale exagérée, pause avant, ton de grand acteur qui surjoue.</div>
+        <div class="diction-tag">Réquisitoire de Clarice — long crescendo accusateur. Insister sur les anaphores <span class="cite">« Qui… Qui… Qui… »</span>, marquer chaque antithèse par un léger ralentissement.</div>
+        <div class="diction-tag"><span class="cite">« Vous-même, apprenez-moi comme il faut qu'on me nomme »</span> — pause avant, ton cinglant et triomphant. Clarice ferme la scène.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">3</span><h2>Problématique</h2></div>
+    <div class="sec-body">
+      <div class="pb">En quoi cette scène de confrontation fait-elle du langage à la fois l'arme et la faiblesse de Dorante, transformant le démasquage du menteur en véritable spectacle comique ?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">4</span><h2>Explication linéaire — 3 mouvements</h2><span class="badge ml-auto">/8</span></div>
+    <div class="sec-body">
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">1</div>La stichomythie : le menteur acculé par la joute verbale</div>
+        <p>De <span class="cite">« Je vous voulais tantôt proposer quelque chose »</span> à <span class="cite">« Un menteur est toujours prodigue de serments »</span></p>
+        <p>Les répliques s'échangent en un à deux alexandrins : le rythme de duel mime l'impossibilité du mensonge soutenu. Chaque tentative de Dorante est immédiatement désamorcée. L'<strong>aparté</strong> <span class="cite">« Est-il un plus grand fourbe ? / Il ne sait que mentir »</span> place Clarice et Lucrèce en spectatrices lucides : le mensonge de Dorante devient un spectacle dont elles tiennent le programme — effet de <em>théâtre dans le théâtre</em>.</p>
+        <p>La <strong>négation exclamative</strong> <span class="cite">« Moi, marié ! »</span> traduit une indignation feinte aussitôt comique. Le <strong>serment hyperbolique</strong> <span class="cite">« Que le foudre à vos yeux m'écrase si je mens ! »</span> détourne le registre épique au service du mensonge : l'excès même trahit l'embarras et rend Dorante risible. La scène se ferme sur une <strong>maxime au présent gnomique</strong>, prononcée par Clarice : <span class="cite">« Un menteur est toujours prodigue de serments »</span> — en une ligne, elle démonte toute la rhétorique de Dorante.</p>
+        <div class="tags">
+          <span class="procede">Stichomythie</span>
+          <span class="procede">Aparté (théâtre dans le théâtre)</span>
+          <span class="procede">Négation exclamative</span>
+          <span class="procede">Serment hyperbolique</span>
+          <span class="procede">Maxime gnomique</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">2</div>Dorante contre-attaque : la proposition de mariage, ultime audace</div>
+        <p>De <span class="cite">« Non. Si vous avez eu pour moi quelque pensée »</span> à <span class="cite">« j'en crains les jaloux »</span></p>
+        <p>Pris en flagrant délit, Dorante propose aussitôt de recommencer : <span class="cite">« agréez que demain / En qualité d'époux je vous donne la main »</span>. L'audace est comique — il transforme son mensonge sur le mariage en déclaration solennelle. L'<strong>hyperbole ironique</strong> de Clarice <span class="cite">« Vous la donneriez en un jour à deux mille »</span> ridiculise l'offre et signale que ses serments n'ont aucune valeur.</p>
+        <p>La réplique finale <span class="cite">« j'en crains les jaloux »</span> révèle le <strong>comique de caractère</strong> : Dorante ne se défend pas, il joue. Cette désinvolture face au réel le rend fascinant autant que coupable, et donne toute sa saveur à la scène.</p>
+        <div class="tags">
+          <span class="procede">Proposition de mariage effrontée</span>
+          <span class="procede">Hyperbole ironique</span>
+          <span class="procede">Comique de caractère</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">3</div>Le réquisitoire de Clarice : portrait satirique et renversement du pouvoir</div>
+        <p>De <span class="cite">« C'est tout ce que mérite un homme tel que vous »</span> à la fin de la scène.</p>
+        <p>La grande tirade de Clarice est construite sur une <strong>anaphore de propositions relatives</strong> : <span class="cite">« Un homme qui se dit… / Qui vint hier… / Qui donne toute nuit… / Qui se dit marié… »</span>. Chaque relative ajoute un mensonge au tableau : la grammaire devient instrument de condamnation. Les <strong>antithèses</strong> opposent la posture affichée à la réalité triviale — <span class="cite">« un grand foudre de guerre »</span> / <span class="cite">« à coups d'écritoire ou de verre »</span> ; <span class="cite">« festin, musique, et danse »</span> / <span class="cite">« passée en tout silence »</span>. C'est le procédé central du comique : la chute du <em>miles gloriosus</em>, le soldat fanfaron hérité de la comédie antique.</p>
+        <p>L'<strong>énumération ternaire</strong> <span class="cite">« festin, musique, et danse »</span> au rythme expansif est écrasée par la coupe : <span class="cite">« passée en tout silence »</span> — le vers lui-même mime phoniquement le vide. La <strong>paronymie</strong> <span class="cite">« se dit marié, puis soudain s'en dédit »</span> souligne avec ironie la facilité avec laquelle Dorante dit tout et son contraire en un seul alexandrin.</p>
+        <p>Le vers final <span class="cite">« Vous-même, apprenez-moi comme il faut qu'on me nomme »</span> est un <strong>renversement total</strong> : Clarice, d'abord spectatrice, prend le pouvoir de nommer et interroge Dorante sur sa propre identité. Le menteur, maître de la parole, se retrouve sans réponse.</p>
+        <div class="tags">
+          <span class="procede">Anaphore de relatives</span>
+          <span class="procede">Antithèses (réalité vs posture)</span>
+          <span class="procede">Miles gloriosus</span>
+          <span class="procede">Paronymie (marié / s'en dédit)</span>
+          <span class="procede">Question rhétorique finale</span>
+          <span class="procede">Renversement du pouvoir</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">5</span><h2>Question de grammaire probable</h2><span class="badge ml-auto">/2</span></div>
+    <div class="sec-body">
+      <p><strong>Fait de langue :</strong> Les propositions subordonnées relatives dans le réquisitoire de Clarice.</p>
+      <p><strong>Relevé :</strong> <span class="cite">« Un homme qui se dit un grand foudre de guerre / […] / Qui vint hier de Poitiers […] / Qui donne toute nuit festin, musique, et danse […] / Qui se dit marié, puis soudain s'en dédit »</span></p>
+      <p><strong>Analyse :</strong> Chaque proposition est une <strong>subordonnée relative déterminative</strong> introduite par le pronom relatif <em>qui</em>, sujet du verbe de la relative. Leur antécédent commun est le GN <em>un homme</em>. Ces relatives caractérisent et délimitent l'antécédent : elles ne font pas qu'ajouter une information, elles définissent et condamnent. L'<strong>anaphore</strong> du pronom relatif crée un effet d'accumulation rhétorique : chaque relative constitue un nouveau chef d'accusation, et leur enchaînement produit un rythme de liste implacable.</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--text-secondary);font-size:13px;">Question attendue : « Identifiez la nature et la fonction des propositions introduites par <em>qui</em> dans la tirade de Clarice, et expliquez leur effet rhétorique. »</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">6</span><h2>Ouverture vers l'entretien</h2><span class="badge ml-auto">/5</span></div>
+    <div class="sec-body">
+      <div class="piste"><div class="piste-num">1</div><p>Corneille ne punit pas Dorante à la fin de la pièce — contrairement à son modèle espagnol. En quoi cela invite-t-il à voir le mensonge non comme un vice condamnable, mais comme un <strong>art</strong>, voire comme une <strong>métaphore du théâtre lui-même</strong> ? (<span class="cite">« Il fait pièce nouvelle, écoutons »</span> — le mensonge de Dorante devient pièce de théâtre.)</p></div>
+      <div class="piste"><div class="piste-num">2</div><p>Dans cette scène, <strong>ce sont les femmes qui mènent le jeu</strong> : Clarice et Lucrèce ont échangé leurs identités, piégé Dorante et tenu le discours le plus acéré. Que révèle cette inversion sur la vision cornélienne de l'intelligence et du pouvoir féminin dans la comédie classique ?</p></div>
+      <div class="piste"><div class="piste-num">3</div><p>Tout le monde ment dans la pièce : Clarice, Lucrèce, Cliton, et même le quiproquo est un mensonge de la mise en scène. Le <strong>mensonge est-il une condition de la comédie</strong>, voire du théâtre en général ? En quoi l'illusion théâtrale est-elle elle-même un « mensonge agréable » ?</p></div>
+    </div>
+  </div>
+
+</div><!-- /fiche 2 -->
+
+
+<!-- =========================================================
+     FICHE 3 — LE MENTEUR V.2–3
+========================================================= -->
+<div class="fiche">
+
+  <div class="header">
+    <h1>Le Menteur — Acte V, scènes II et III</h1>
+    <p>Pierre Corneille · Théâtre du XVIIe au XXIe siècle · Parcours : Mensonge et comédie</p>
+  </div>
+
+  <div class="barème">
+    <div class="pt">Lecture <span>/2</span></div>
+    <div class="pt">Commentaire linéaire <span>/8</span></div>
+    <div class="pt">Grammaire <span>/2</span></div>
+    <div class="pt">Œuvre <span>/3</span></div>
+    <div class="pt">Entretien <span>/5</span></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">1</span><h2>Situation du texte</h2></div>
+    <div class="sec-body">
+      <p><strong>Auteur :</strong> Pierre Corneille (1606–1684), dramaturge classique du XVIIe siècle, auteur du <em>Cid</em>, d'<em>Horace</em> et de <em>L'Illusion comique</em>. Contemporain de Molière et Racine, il est associé à la tragédie classique — mais <em>Le Menteur</em> révèle sa maîtrise de la comédie.</p>
+      <p><strong>Œuvre :</strong> <em>Le Menteur</em>, comédie en cinq actes et en vers, représentée en <strong>1644</strong>. Corneille s'inspire de <em>La Verdad sospechosa</em> de Lope de Vega, pièce espagnole qu'il adapte au goût classique français. L'œuvre met en scène Dorante, jeune Parisien compulsif du mensonge, dont les inventions multipliées finissent par se retourner contre lui.</p>
+      <p><strong>Place de l'extrait :</strong> L'acte V est le <strong>dénouement</strong> de la pièce. Scène II : Géronte, seul, vient d'apprendre que ses propres paroles — rapportées comme vraies — n'étaient que le relais d'un mensonge de Dorante. Scène III : il confronte directement son fils, et transforme le démasquage en un véritable procès de l'identité nobiliaire.</p>
+      <p><strong>Objet d'étude :</strong> Le théâtre du XVIIe au XXIe siècle · <strong>Parcours :</strong> Mensonge et comédie</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">2</span><h2>Lecture expressive</h2></div>
+    <div class="sec-body">
+      <div class="diction">
+        <div class="diction-tag">Scène II — monologue de Géronte : voix grave, douleur contenue. Rythme lent pour les exclamations initiales, légère accélération dans les distiques de la honte.</div>
+        <div class="diction-tag">Insister sur les trois <span class="cite">« Ô »</span> initiaux : pause entre chaque, ton de lamentation — registre de la plainte antique (comme un chœur de tragédie).</div>
+        <div class="diction-tag">Les deux interrogatives rhétoriques <span class="cite">« Est-il dessous le ciel… »</span> et <span class="cite">« Est-il affront plus grand… »</span> : ton rhétorique montant, pas de réponse attendue — marquer la montée de l'indignation.</div>
+        <div class="diction-tag"><span class="cite">« me fait fourber moi-même »</span> et <span class="cite">« le trompette et le second auteur »</span> : appuyer ces expressions — elles sont le cœur de la scène, la conscience de la contamination.</div>
+        <div class="diction-tag">Scène III — contraste net : Géronte entre sec et autoritaire, Dorante en aparté d'abord (<span class="cite">« Ah ! rencontre fâcheuse ! »</span>) puis jouant le fils respectueux.</div>
+        <div class="diction-tag">Tirade de Géronte sur la noblesse : ton sentencieux, maximes. Ralentir sur chaque chiasme. Marquer la violence froide du vers final <span class="cite">« Tu n'es plus gentilhomme, étant sorti de moi »</span>.</div>
+        <div class="diction-tag"><span class="cite">« Moi ? »</span> de Dorante : même neutralité que dans I.3. Un seul mot, chargé — coupure nette, silence avant que Géronte reprenne.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">3</span><h2>Problématique</h2></div>
+    <div class="sec-body">
+      <div class="pb">Comment Corneille fait-il du mensonge de Dorante non plus une ruse comique mais une faute grave qui corrompt jusqu'à son père et efface son identité même de gentilhomme — glissant ainsi de la comédie vers un sombre procès de l'honneur ?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">4</span><h2>Explication linéaire — 3 mouvements</h2><span class="badge ml-auto">/8</span></div>
+    <div class="sec-body">
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">1</div>Scène II — Le monologue de Géronte : la honte double d'un père contaminé</div>
+        <p>Le monologue s'ouvre sur trois exclamations construites sur l'interjection <span class="cite">« Ô »</span> : <span class="cite">« Ô vieillesse facile ! Ô jeunesse impudente ! / Ô de mes cheveux gris honte trop évidente ! »</span> Cette <strong>anaphore exclamative</strong> donne à la plainte de Géronte une ampleur quasi tragique. L'<strong>antithèse</strong> vieillesse / jeunesse oppose deux générations et deux registres moraux : la naïveté coupable du père et l'impudence délibérée du fils. La métaphore des <span class="cite">« cheveux gris »</span> — synecdoque de la vieillesse — transforme la honte en signe visible, exposé au regard de tous.</p>
+        <p>Deux <strong>interrogatives rhétoriques</strong> suivent : <span class="cite">« Est-il dessous le ciel père plus malheureux ? / Est-il affront plus grand pour un cœur généreux ? »</span> Ces questions sans réponse attendue ne cherchent pas une information : elles expriment l'excès de la douleur sous forme superlative. Le père se pose en victime absolue, et la formule <span class="cite">« cœur généreux »</span> souligne l'injustice — c'est précisément sa bonté qui a permis le mensonge.</p>
+        <p>Le cœur du monologue est l'aveu d'une <strong>contamination</strong> : <span class="cite">« Après m'avoir fourbé, me fait fourber moi-même »</span>. Le <strong>polyptote</strong> de <em>fourber</em> (fourbé / fourber) signale que le mensonge de Dorante n'est plus confiné à lui seul — il a fait du père un relais involontaire du faux. La métaphore <span class="cite">« le trompette et le second auteur »</span> est particulièrement frappante : Géronte est réduit à un instrument de propagande du mensonge, un porte-voix sans conscience. La double occurrence de <span class="cite">« rougir »</span> est un <strong>polyptote</strong> qui expose la double honte : honte du fils, puis honte de sa propre naïveté. Géronte est humilié deux fois, et la seconde est la plus cuisante.</p>
+        <div class="tags">
+          <span class="procede">Anaphore exclamative (Ô)</span>
+          <span class="procede">Antithèse vieillesse / jeunesse</span>
+          <span class="procede">Interrogatives rhétoriques superlatives</span>
+          <span class="procede">Polyptote de « fourber »</span>
+          <span class="procede">Métaphore du « trompette »</span>
+          <span class="procede">Polyptote de « rougir »</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">2</div>Début de la scène III — La question piège et l'esquive de Dorante</div>
+        <p>La scène III s'ouvre sans préambule : <span class="cite">« Êtes-vous gentilhomme ? »</span> — trois mots, une question directe, une rupture totale avec la politesse attendue entre père et fils. Cet <strong>incipit abrupt</strong> signale que Géronte ne joue plus. L'aparté de Dorante — <span class="cite">« Ah ! rencontre fâcheuse ! »</span> — révèle au spectateur la panique du menteur, tout en lui permettant de reprendre son masque.</p>
+        <p>La réponse de Dorante est un chef-d'œuvre de dérobade : <span class="cite">« Étant sorti de vous, la chose est peu douteuse. »</span> Il retourne la question en argument d'autorité filiale — comme si la noblesse du père suffisait à garantir la sienne sans que sa propre vertu soit en cause. Cette <strong>esquive par déduction</strong> est une nouvelle ruse : au lieu de se défendre, il déplace le problème sur la personne de son père. Géronte perçoit immédiatement la manœuvre : <span class="cite">« Croyez-vous qu'il suffit d'être sorti de moi ? »</span> — et c'est cette question qui ouvre la grande tirade sur la noblesse.</p>
+        <p>L'échange bref entre Géronte et Dorante — <span class="cite">« Avec toute la France aisément je le croi »</span> — révèle la désinvolture impertinente du fils : même acculé, il répond en société, avec la légèreté de celui qui n'a rien à craindre. Ce <strong>comique de caractère</strong> rappelle que sa nature profonde est celle d'un improvisateur perpétuel.</p>
+        <div class="tags">
+          <span class="procede">Incipit abrupt (question directe)</span>
+          <span class="procede">Aparté (aparté de panique)</span>
+          <span class="procede">Esquive par argument filial</span>
+          <span class="procede">Comique de caractère (désinvolture impertinente)</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">3</div>La tirade de Géronte — Le mensonge comme déchéance nobiliaire : un arrêt de mort identitaire</div>
+        <p>Géronte développe une thèse en trois temps sur la nature de la noblesse. Premier temps : la vertu fonde la noblesse (<span class="cite">« la vertu seule a mis en ce haut rang / Ceux qui l'ont jusqu'à moi fait passer dans leur sang »</span>). Deuxième temps : construction d'un raisonnement en <strong>chiasme syntaxique</strong> — <span class="cite">« Où le sang a manqué, si la vertu l'acquiert, / Où le sang l'a donné, le vice aussi le perd »</span>. Les deux propositions s'inversent parfaitement : l'une dit que la vertu compense l'absence de sang, l'autre que le vice annule le don du sang. La structure grammaticale elle-même incarne la logique implacable du père.</p>
+        <p>Cette logique est résumée dans une <strong>maxime</strong> : <span class="cite">« Ce qui naît d'un moyen périt par son contraire »</span> — une sentence au présent gnomique, à valeur universelle. Ce qui suit est une condamnation formelle : <span class="cite">« dans la lâcheté du vice où je te voi, / Tu n'es plus gentilhomme, étant sorti de moi »</span>. Le passage du vouvoiement au tutoiement (<em>tu</em>, <em>te</em>) marque un basculement : Géronte ne s'adresse plus au fils respectueux, il désigne un inconnu qu'il renie.</p>
+        <p>La sentence finale — <span class="cite">« Il ment quand il le dit, et ne le fut jamais »</span> — applique la logique au passé entier de Dorante : le mensonge présent efface rétrospectivement toute l'identité passée. Le verbe <em>fut</em> au passé simple, temps de la rupture définitive, scelle le verdict. Et face à tout cela, Dorante ne répond que <span class="cite">« Moi ? »</span> — même interjection qu'en I.3, même réflexe de déni. L'écho est amer : le menteur, un instant dépouillé de tous ses mots, n'a plus que ce seul pronom pour exister.</p>
+        <div class="tags">
+          <span class="procede">Chiasme syntaxique (vertu / sang / vice)</span>
+          <span class="procede">Maxime au présent gnomique</span>
+          <span class="procede">Symétrie des maximes en antithèse</span>
+          <span class="procede">Passage du vouvoiement au tutoiement</span>
+          <span class="procede">Passé simple de rupture (« ne le fut jamais »)</span>
+          <span class="procede">Écho de « Moi ? » (I.3 → V.3)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">5</span><h2>Question de grammaire probable</h2><span class="badge ml-auto">/2</span></div>
+    <div class="sec-body">
+      <p><strong>Fait de langue : les interrogatives rhétoriques à inversion du sujet dans le monologue de Géronte.</strong></p>
+      <p><strong>Relevé :</strong> <span class="cite">« Est-il dessous le ciel père plus malheureux ? »</span> et <span class="cite">« Est-il affront plus grand pour un cœur généreux ? »</span></p>
+      <p><strong>Analyse syntaxique :</strong> Ce sont des <strong>propositions interrogatives directes</strong> avec <strong>inversion du sujet</strong> (<em>il</em>, pronom sujet postposé au verbe <em>est</em>). La structure est impersonnelle : <em>il</em> n'est pas un sujet référentiel mais un sujet grammatical impersonnel, sans antécédent — équivalent de « y a-t-il ». Le vrai sujet logique est le groupe nominal postposé : <em>père plus malheureux</em> / <em>affront plus grand</em>.</p>
+      <p><strong>Valeur et effet :</strong> Ces interrogatives ne cherchent pas de réponse — ce sont des <strong>interrogatives rhétoriques</strong> qui expriment une superlative émotionnelle. La forme interrogative intensifie le propos : elle implique le spectateur, comme si elle le prenait à témoin, et donne à la douleur de Géronte une dimension universelle. L'anaphore des deux questions crée un rythme de lamentation.</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--text-secondary);font-size:13px;">Question attendue : « Analysez la construction des deux interrogatives du début du monologue de Géronte et expliquez leur valeur dans le texte. »</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">6</span><h2>Ouverture vers l'entretien</h2><span class="badge ml-auto">/5</span></div>
+    <div class="sec-body">
+      <div class="piste"><div class="piste-num">1</div><p>Dorante n'est jamais véritablement puni à la fin de la pièce — il épouse même Lucrèce et son père finit par accepter. Comment interpréter ce verdict sévère de Géronte à l'acte V depuis la fin de la pièce ? Le pardon final dément-il le réquisitoire, ou est-ce la comédie qui reprend ses droits sur la morale ?</p></div>
+      <div class="piste"><div class="piste-num">2</div><p>Géronte affirme que la noblesse se mérite par la vertu, non par le sang seul. Cette thèse est-elle courageuse pour un auteur du XVIIe siècle ? En quoi cette scène dépasse-t-elle la simple comédie et touche à des débats sociaux et moraux de l'époque ?</p></div>
+      <div class="piste"><div class="piste-num">3</div><p>À l'acte I scène 3, Dorante mentait avec une légèreté brillante. Ici, face à son père, il ne dit plus que <span class="cite">« Moi ? »</span>. Le mensonge a-t-il une limite ? Peut-on voir dans ce silence une première fissure dans le personnage — le début d'une prise de conscience ?</p></div>
+    </div>
+  </div>
+
+</div><!-- /fiche 3 -->
+
+
+<!-- =========================================================
+     FICHE 4 — MUSSET, ON NE BADINE PAS III.3
+========================================================= -->
+<div class="fiche">
+
+  <div class="header">
+    <h1>On ne badine pas avec l'amour — Acte III, scène 3</h1>
+    <p>Alfred de Musset (1834) · Théâtre du XVIIe au XXIe siècle · Parcours : Mensonge et comédie</p>
+  </div>
+
+  <div class="barème">
+    <div class="pt">Lecture <span>/2</span></div>
+    <div class="pt">Commentaire linéaire <span>/8</span></div>
+    <div class="pt">Grammaire <span>/2</span></div>
+    <div class="pt">Œuvre <span>/3</span></div>
+    <div class="pt">Entretien <span>/5</span></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">1</span><h2>Situation du texte</h2></div>
+    <div class="sec-body">
+      <p>Alfred de Musset publie <span class="cite">On ne badine pas avec l'amour</span> en 1834 dans <em>La Revue des deux mondes</em>. La pièce, qualifiée de <em>proverbe dramatique</em>, ne sera jouée qu'en 1861 à la Comédie-Française, après la mort de son auteur. Elle mêle la légèreté de la comédie (le badinage, les jeux amoureux) et la gravité du drame romantique (jalousie, mensonge, mort).</p>
+      <p>L'action oppose Perdican et Camille, deux cousins de retour dans le château de leur enfance après des années de séparation — lui aux études, elle au couvent. Dans la scène 2 de l'acte III, Perdican a découvert une lettre de Camille révélant qu'elle l'a repoussé par calcul et par orgueil. Blessé, il décide de se venger : il organise un rendez-vous à la fontaine et y amène Rosette, sœur de lait de Camille, pour que Camille, cachée, soit forcée d'assister à une déclaration d'amour qui lui est en réalité destinée.</p>
+      <p>L'extrait s'inscrit dans l'objet d'étude <em>Le théâtre du XVIIe au XXIe siècle</em> et le parcours <em>Mensonge et comédie</em> : le mensonge y est simultanément ressort comique (le témoin caché, la double énonciation) et moteur tragique, puisque Rosette mourra dans l'acte III, scène 8, victime innocente du jeu cruel des deux cousins.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">2</span><h2>Lecture expressive</h2></div>
+    <div class="sec-body">
+      <div class="diction">
+        <div class="diction-tag">Ton surjoué, théâtral sur <span class="cite">« Je t'aime, Rosette ! »</span></div>
+        <div class="diction-tag">Souligner la didascalie <span class="cite">« à haute voix »</span></div>
+        <div class="diction-tag">Aparté de Camille dit en voix basse, retenu</div>
+        <div class="diction-tag">Ralentissement lyrique sur la fontaine</div>
+        <div class="diction-tag">Pause avant <span class="cite">« c'était une bague que m'avait donnée Camille »</span></div>
+        <div class="diction-tag">Ton déclamatoire sur <span class="cite">« Sais-tu ce que c'est que l'amour ? »</span></div>
+        <div class="diction-tag">Légère dureté sur <span class="cite">« pâles statues fabriquées par les nonnes »</span></div>
+        <div class="diction-tag">Élan lyrique large sur <span class="cite">« nous prendrons racine »</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">3</span><h2>Problématique</h2></div>
+    <div class="sec-body">
+      <div class="pb">Comment Musset transforme-t-il le procédé comique du témoin caché en révélateur de la cruauté du mensonge amoureux ?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">4</span><h2>Explication linéaire — 3 mouvements</h2><span class="badge ml-auto">/8</span></div>
+    <div class="sec-body">
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">1</div>Le piège du théâtre dans le théâtre — du début à « Il lui pose sa chaîne sur le cou »</div>
+        <p>La didascalie inaugurale est la clé de toute la scène : <span class="cite">« à haute voix, de manière que Camille l'entend »</span>. En deux lignes, Musset indique que ce qui va suivre est une <em>performance</em>, non une confession sincère. Perdican n'est pas amoureux de Rosette — il joue pour un public d'une spectatrice. Cette didascalie transforme la scène en <em>théâtre dans le théâtre</em> : Perdican est à la fois acteur, metteur en scène et dramaturge de sa propre vengeance.</p>
+        <p>La déclaration <span class="cite">« Je t'aime, Rosette »</span> présente tous les codes du topos amoureux, mais l'excès de ces codes signe le registre de la comédie. L'anaphore <span class="cite">« toi seule au monde tu n'as rien oublié… toi seule tu te souviens »</span> construit un parallélisme qui adresse un reproche codé à Camille. L'aparté laconique de Camille — <span class="cite">« Que veut dire cela ? »</span> — installe l'<em>ironie dramatique</em> : le spectateur connaît le stratagème, Camille l'ignore encore.</p>
+        <div class="tags">
+          <span class="procede">Didascalie / théâtre dans le théâtre</span>
+          <span class="procede">Double énonciation</span>
+          <span class="procede">Anaphore « toi seule »</span>
+          <span class="procede">Topos de la déclaration surjouée</span>
+          <span class="procede">Aparté / ironie dramatique</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">2</div>La fontaine et la bague — un lyrisme instrumentalisé — jusqu'à « c'était une bague que m'avait donnée Camille »</div>
+        <p>Ce mouvement est dominé par les impératifs : <span class="cite">« Regarde »</span>, <span class="cite">« Lève-toi »</span>, <span class="cite">« approchons-nous »</span>. Perdican ne fait pas que déclarer — il <em>met en scène</em> : il dirige les corps, choisit le décor, règle le regard. La fontaine devient un espace symbolique fort. L'<em>hypotypose</em> de l'eau qui s'apaise mime le temps de l'attente amoureuse et place Camille dans une position de contemplatrice de sa propre douleur.</p>
+        <p>Le retournement final est calculé pour frapper : <span class="cite">« c'était une bague que m'avait donnée Camille »</span>. Geste symbolique — il rejette Camille dans l'eau, efface son image, rompt publiquement le lien. La réaction de Camille en aparté, <span class="cite">« Il a jeté ma bague dans l'eau »</span>, est saisissante d'économie : quatre mots, aucune exclamation. Ce laconisme dit ce que le lyrisme de Perdican dissimule — la vraie blessure, silencieuse.</p>
+        <div class="tags">
+          <span class="procede">Impératifs / Perdican metteur en scène</span>
+          <span class="procede">Hypotypose de la fontaine</span>
+          <span class="procede">Symbole de l'eau troublée</span>
+          <span class="procede">Retournement dramatique calculé</span>
+          <span class="procede">Antithèse lyrisme / laconisme de Camille</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">3</div>L'hymne à l'amour et les deux portraits de femmes — de « Sais-tu ce que c'est que l'amour ? » à la fin</div>
+        <p>La question rhétorique <span class="cite">« Sais-tu ce que c'est que l'amour, Rosette ? »</span> encadre ce dernier mouvement en lui donnant une structure d'<em>hymne</em>. Le portrait de Rosette est construit par une série de six négations qui dessinent en creux un anti-portrait de Camille : l'éducation conventuelle y est présentée comme une corruption physiologique (le <em>sang affadi</em>) et spirituelle (<span class="cite">« pâles statues fabriquées par les nonnes, qui ont la tête à la place du cœur »</span>).</p>
+        <p>Deux relatives coordonnées amplifient l'image en un tableau d'asphyxie. À l'inverse, Rosette est célébrée par une longue accumulation lyrique associant la nature et la vie. La demande en mariage finale — <span class="cite">« nous prendrons racine ensemble dans la sève du monde tout-puissant »</span> — clôt sur une métaphore végétale romantique. Mais le spectateur ne peut ignorer que ce discours, aussi lyrique soit-il, est bâti sur une manipulation.</p>
+        <div class="tags">
+          <span class="procede">Structure d'hymne (question rhétorique)</span>
+          <span class="procede">Portrait en creux par la négation</span>
+          <span class="procede">Métaphore médicale « sang affadi »</span>
+          <span class="procede">Relatives d'amplification</span>
+          <span class="procede">Accumulation lyrique / nature romantique</span>
+          <span class="procede">Métaphore végétale finale</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">5</span><h2>Question de grammaire probable</h2><span class="badge ml-auto">/2</span></div>
+    <div class="sec-body">
+      <p><strong>Fait de langue :</strong> Les propositions subordonnées relatives dans <span class="cite">« ces pâles statues fabriquées par les nonnes, qui ont la tête à la place du cœur, et qui sortent des cloîtres pour venir répandre dans la vie l'atmosphère humide de leurs cellules »</span>.</p>
+      <p>Les deux propositions introduites par <span class="cite">« qui »</span> sont des <strong>subordonnées relatives déterminatives</strong>. Leur antécédent commun est <span class="cite">« statues »</span>. Coordonnées par <span class="cite">« et »</span>, elles créent une amplification progressive : la première définit l'être (manquer d'affect), la seconde décrit l'action nuisible (contaminer la vie). Leur enchaînement produit un tableau animé — les statues bougent, envahissent — et constitue une satire de l'éducation religieuse.</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--text-secondary);font-size:13px;">Question attendue : « Identifiez la nature et la fonction des propositions introduites par "qui". Quel est leur antécédent ? En quoi leur coordination produit-elle un effet stylistique particulier ? »</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">6</span><h2>Ouverture vers l'entretien</h2><span class="badge ml-auto">/5</span></div>
+    <div class="sec-body">
+      <div class="piste"><div class="piste-num">1</div><p>En quoi cette scène illustre-t-elle le titre de la pièce ? Perdican joue avec les sentiments et Rosette mourra à l'acte III, scène 8. Comment Musset transforme-t-il un ressort comique hérité de Marivaux (le témoin caché) en moteur d'une mécanique tragique ?</p></div>
+      <div class="piste"><div class="piste-num">2</div><p>Le discours de Perdican est-il entièrement un mensonge ? La tirade lyrique sur la nature révèle peut-être une sincérité qui se cherche. Comment lire la tension entre le stratège et l'amoureux chez Perdican ?</p></div>
+      <div class="piste"><div class="piste-num">3</div><p>Rosette est instrumentalisée sans le savoir. Sa réplique — <span class="cite">« je vous aimerai comme je pourrai »</span> — est peut-être la seule parole vraiment sincère de la scène. En quoi est-elle la vraie victime du titre ?</p></div>
+    </div>
+  </div>
+
+</div><!-- /fiche 4 -->
+
+
+<!-- =========================================================
+     FICHE 5 — COLLOQUE SENTIMENTAL, VERLAINE
+========================================================= -->
+<div class="fiche">
+
+  <div class="header">
+    <h1>Colloque sentimental — Paul Verlaine</h1>
+    <p><em>Fêtes galantes</em> (1869) · Poésie du XIXe au XXIe siècle · Parcours : Impressionnisme et Symbolisme</p>
+  </div>
+
+  <div class="barème">
+    <div class="pt">Lecture <span>/2</span></div>
+    <div class="pt">Commentaire linéaire <span>/8</span></div>
+    <div class="pt">Grammaire <span>/2</span></div>
+    <div class="pt">Œuvre <span>/3</span></div>
+    <div class="pt">Entretien <span>/5</span></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">1</span><h2>Situation du texte</h2></div>
+    <div class="sec-body">
+      <p><strong>Auteur :</strong> Paul Verlaine (1844–1896), poète symboliste, figure du mouvement parnassien puis précurseur du symbolisme. Connu pour sa poésie musicale et mélancolique.</p>
+      <p><strong>Œuvre :</strong> <em>Fêtes galantes</em> (1869), recueil de 22 poèmes brefs inspirés des tableaux de Watteau représentant l'aristocratie du XVIIIe siècle dans ses divertissements amoureux et galants.</p>
+      <p><strong>Place dans l'œuvre :</strong> <em>Colloque sentimental</em> est le <strong>poème final</strong> du recueil. Alors que les premiers poèmes évoquent jeux et séductions, ce dernier texte clôt l'ensemble sur une note funèbre : la fête devient <em>danse macabre</em>.</p>
+      <p><strong>Parcours associé :</strong> Impressionnisme et Symbolisme — comment le poète suggère l'émotion par des images floues, une musicalité subtile et des correspondances entre paysage extérieur et état intérieur.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">2</span><h2>Lecture expressive</h2></div>
+    <div class="sec-body">
+      <div class="diction">
+        <div class="diction-tag">Voix basse, posée, légèrement voilée — mélancolie distante, jamais de pathos</div>
+        <div class="diction-tag">Rythme lent pour les distiques encadrants (v. 1–6 et 15–16)</div>
+        <div class="diction-tag">Légère accélération dans le dialogue du 1er spectre</div>
+        <div class="diction-tag">Ralentir nettement avant chaque réponse sèche du 2e</div>
+        <div class="diction-tag">Marquer les tirets — changement de voix ou silence court</div>
+        <div class="diction-tag"><span class="cite">« Non »</span> et <span class="cite">« C'est possible »</span> avec détachement glacial</div>
+        <div class="diction-tag">Insister allitération [l][m] : <span class="cite">« leurs lèvres sont molles »</span></div>
+        <div class="diction-tag">1er spectre : ton de supplication nostalgique · 2e : ton plat, mécanique</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">3</span><h2>Problématique</h2></div>
+    <div class="sec-body">
+      <div class="pb">Comment Verlaine transforme-t-il le topos romantique du rendez-vous amoureux en une mise en scène fantomatique de l'incommunicabilité et de la désillusion ?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">4</span><h2>Explication linéaire — 3 mouvements</h2><span class="badge ml-auto">/8</span></div>
+    <div class="sec-body">
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">1</div>Vers 1–6 — Le décor fantomatique : un paysage de mort</div>
+        <p><span class="cite">« vieux parc solitaire et glacé »</span> — trois adjectifs à valeur lugubre forment d'emblée un cadre hostile à toute joie. Le parc, lieu traditionnel des fêtes galantes chez Watteau, est ici <strong>vidé de sa gaieté</strong>. Cette antithèse avec le reste du recueil crée un effet de chute. Au vers 2, les personnages sont des <span class="cite">« formes »</span> — terme neutre, vague. Au vers 6, ils deviennent des <span class="cite">« spectres »</span>. Cette gradation accentue leur dématérialisation : ils sont déjà entre deux mondes.</p>
+        <p><span class="cite">« Leurs yeux sont morts et leurs lèvres sont molles »</span> — le regard (symbole de la vie et du désir) et les lèvres (symbole du baiser et de la parole) sont frappés d'une mort métaphorique. Le corps devient <strong>emblème du sentiment éteint</strong>. Le vers 1, repris à l'identique au vers 5, donne au poème un rythme de complainte et suggère l'enfermement dans un passé dont on ne peut s'évader. Le <strong>polyptote</strong> du mot <span class="cite">« passé »</span> — verbe au vers 2 puis nom au vers 6 — souligne que les personnages sont eux-mêmes du passé.</p>
+        <div class="tags">
+          <span class="procede">Accumulation d'épithètes lugubres</span>
+          <span class="procede">Gradation formes → spectres</span>
+          <span class="procede">Métaphore corporelle de la mort</span>
+          <span class="procede">Répétition / refrain circulaire</span>
+          <span class="procede">Polyptote « passé »</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">2</div>Vers 7–14 — Le dialogue dissymétrique : l'incommunicabilité des amants</div>
+        <p>Le premier spectre multiplie les questions et exclamations — répliques longues, emphatiques. Le second répond par des formules laconiques : <span class="cite">« Non »</span>, <span class="cite">« C'est possible »</span>. Cette <strong>asymétrie formelle</strong> traduit un gouffre affectif. Le premier spectre tutoie (<span class="cite">« Te souvient-il »</span>, <span class="cite">« ton cœur »</span>) — marque d'une ancienne intimité. Le second répond avec le vouvoiement (<span class="cite">« voulez-vous »</span>) — il impose une distance comme si la relation n'avait jamais existé. L'asymétrie grammaticale dit l'asymétrie sentimentale.</p>
+        <p><span class="cite">« extase ancienne »</span>, <span class="cite">« bonheur indicible »</span>, <span class="cite">« mon âme en rêve »</span> — le lexique de l'exaltation romantique contraste violemment avec les réponses sèches : Verlaine illustre ici l'<strong>illusion lyrique</strong>. Le vers 13 <span class="cite">« Qu'il était bleu, le ciel, et grand l'espoir »</span> est immédiatement renversé au vers 14 : <span class="cite">« L'espoir a fui, vaincu, vers le ciel noir »</span>. Ce <strong>chiasme chromatique</strong> (bleu / noir) incarne le passage de l'idéal à la désillusion. La personnification de l'espoir <em>fuyant</em> et <em>vaincu</em> dramatise l'effondrement.</p>
+        <div class="tags">
+          <span class="procede">Dissymétrie des répliques</span>
+          <span class="procede">Tutoiement / vouvoiement (distance)</span>
+          <span class="procede">Hyperboles lyriques du 1er spectre</span>
+          <span class="procede">Chiasme chromatique bleu / noir</span>
+          <span class="procede">Personnification de l'espoir</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">3</div>Vers 15–16 — Le retour au silence : la nuit comme seul témoin</div>
+        <p><span class="cite">« les avoines folles »</span> — végétation sauvage, incontrôlée, envahissante. L'adjectif <em>folles</em> suggère à la fois le désordre intérieur des personnages et l'abandon du lieu, livré à une nature indifférente aux drames humains. <span class="cite">« la nuit seule entendit leurs paroles »</span> — la nuit personnifiée comme unique destinataire du dialogue est profondément ironique : si la nuit seule a entendu, c'est que les deux spectres ne se sont <strong>pas vraiment écoutés</strong>. Le mot <em>seule</em> résonne comme un verdict.</p>
+        <p>Le vers 16 reprend le terme <span class="cite">« paroles »</span> du vers 4. La boucle se ferme : le poème commence et finit sur l'impossibilité du langage. Cette <strong>structure circulaire</strong> illustre le vide absolu laissé par la rencontre, et suggère que les spectres sont condamnés à errer éternellement sans se rejoindre.</p>
+        <div class="tags">
+          <span class="procede">Métaphore végétale (avoines folles)</span>
+          <span class="procede">Personnification ironique de la nuit</span>
+          <span class="procede">Circularité / reprise de « paroles »</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">5</span><h2>Question de grammaire probable</h2><span class="badge ml-auto">/2</span></div>
+    <div class="sec-body">
+      <p><strong>Fait de langue : l'interrogation directe avec inversion du sujet</strong></p>
+      <p>Dans le dialogue (vv. 7–10), Verlaine multiplie les phrases interrogatives directes avec <strong>inversion du sujet</strong> : <span class="cite">« Te souvient-il de notre extase ancienne ? »</span>, <span class="cite">« Ton cœur bat-il toujours à mon seul nom ? »</span>, <span class="cite">« Toujours vois-tu mon âme en rêve ? »</span></p>
+      <p><strong>Nature :</strong> Interrogation directe totale (réponse oui/non attendue) avec inversion du pronom sujet (<em>-il</em>, <em>-tu</em>). <strong>Valeur :</strong> Ces interrogatives ne sont pas de simples demandes d'information — elles expriment une <strong>imploration</strong>, une quête désespérée de confirmation que l'amour a existé. En contraste, les réponses du second spectre sont sans verbe conjugué (<em>Non</em>, <em>C'est possible</em>), soulignant le refus d'entrer dans l'échange.</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--text-secondary);font-size:13px;">Question attendue : « Identifiez la nature des propositions interrogatives des vers 7–10 et expliquez l'effet de leur opposition aux réponses du second spectre. »</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">6</span><h2>Ouverture vers l'entretien</h2><span class="badge ml-auto">/5</span></div>
+    <div class="sec-body">
+      <div class="piste"><div class="piste-num">1</div><p>En quoi ce poème constitue-t-il une <strong>clôture ironique</strong> du recueil <em>Fêtes galantes</em> ? Comment Verlaine retourne-t-il contre lui-même le monde insouciant de la fête galante ?</p></div>
+      <div class="piste"><div class="piste-num">2</div><p>Verlaine s'inscrit-il dans la tradition romantique (Musset, Lamartine) ou s'en démarque-t-il ? En quoi sa façon de traiter l'amour perdu est-elle plus <strong>moderne et désenchantée</strong> que celle de ses prédécesseurs ?</p></div>
+      <div class="piste"><div class="piste-num">3</div><p>Comment la <strong>forme poétique</strong> (distiques, décasyllabes, musicalité) participe-t-elle elle-même au sens du poème ? En quoi la structure illustre-t-elle la solitude et l'isolement des personnages ?</p></div>
+    </div>
+  </div>
+
+</div><!-- /fiche 5 -->
+
+
+<!-- =========================================================
+     FICHE 6 — LE MAL, RIMBAUD
+========================================================= -->
+<div class="fiche">
+
+  <div class="header">
+    <h1>Le Mal — Arthur Rimbaud</h1>
+    <p>Cahiers de Douai (1870) · Poésie du XIXe siècle · Parcours : Émancipations créatrices</p>
+  </div>
+
+  <div class="barème">
+    <div class="pt">Lecture <span>/2</span></div>
+    <div class="pt">Commentaire linéaire <span>/8</span></div>
+    <div class="pt">Grammaire <span>/2</span></div>
+    <div class="pt">Œuvre <span>/3</span></div>
+    <div class="pt">Entretien <span>/5</span></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">1</span><h2>Situation du texte</h2></div>
+    <div class="sec-body">
+      <p>Arthur Rimbaud, <span class="cite">Cahiers de Douai</span>, 1870. Sonnet écrit à 16 ans dans le contexte de la guerre franco-prussienne. Adressé à son mentor Georges Izambard. Objet d'étude : <em>La poésie du XIXe siècle au XXIe siècle</em>. Parcours : <em>Émancipations créatrices</em> — Rimbaud s'affranchit des conventions romantiques et religieuses pour forger une poésie de révolte sociale et morale.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">2</span><h2>Lecture expressive</h2></div>
+    <div class="sec-body">
+      <div class="diction">
+        <div class="diction-tag">Ton sourd et pesant (v.1–4)</div>
+        <div class="diction-tag">Pause longue sur « — » (v.5 et v.9)</div>
+        <div class="diction-tag">Élévation lyrique <span class="cite">« Nature ! ô toi »</span> (v.8)</div>
+        <div class="diction-tag">Ironie froide aux tercets (v.9–14)</div>
+        <div class="diction-tag">Lenteur sur <span class="cite">« sou »</span> et <span class="cite">« mouchoir »</span></div>
+        <div class="diction-tag">Suspense v.11 → chute amère v.14</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">3</span><h2>Problématique</h2></div>
+    <div class="sec-body">
+      <div class="pb">Comment Rimbaud dénonce-t-il ces différentes formes de mal — la violence de la guerre, la complicité du pouvoir et l'hypocrisie religieuse — à travers la structure en deux temps du sonnet ?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">4</span><h2>Explication linéaire — 2 mouvements</h2><span class="badge ml-auto">/8</span></div>
+    <div class="sec-body">
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">1</div>Vers 1–8 · La dénonciation de la guerre et du pouvoir royal</div>
+        <p>L'<strong>anaphore de la subordonnée temporelle</strong> <span class="cite">« Tandis que »</span> (v.1 et v.5) structure tout le poème : elle crée une <strong>simultanéité</strong> entre le champ de bataille et les prières, mais aussi une <strong>opposition</strong> entre la violence des hommes et l'indifférence des institutions. Cette construction retarde volontairement la proposition principale, instaurant une tension dramatique qui pèse dès les premiers vers.</p>
+        <p>La violence est posée dès le vers 1 : <span class="cite">« crachats rouges de la mitraille »</span>. La métaphore est délibérément dégradante — les balles assimilées à des crachats, image basse et viscerale qui refuse tout héroïsme. Le rouge représente le sang des corps touchés, et le terme « crachats » associe la mitraille à une créature monstrueuse qui crache du feu. L'<strong>allitération en [r]</strong> percutante (<em>crachats rouges, mitraille, Roi raille</em>) traverse les vers 1 et 3 et mime le crépitement brutal des armes. <span class="cite">« Tout le jour »</span> (v.2) souligne la durée interminable du combat, rendant la bataille encore plus épuisante et absurde. Et juste en face, <span class="cite">« l'infini du ciel bleu »</span> — beauté sereine, idéale — crée une <strong>antithèse</strong> saisissante : le ciel reste beau pendant que les hommes s'entre-tuent.</p>
+        <p>Le vers 3 introduit les couleurs des armées : <span class="cite">« Écarlates ou verts »</span> désigne respectivement la France et la Prusse. En englobant les deux camps dans la même critique, Rimbaud généralise sa dénonciation à toutes les guerres, pas seulement à celle de 1870. La critique du Roi est cinglante : <span class="cite">« près du Roi qui les raille »</span> — il méprise ses soldats qu'il a lui-même envoyés mourir. La rime <em>mitraille/raille</em> est une ironie sonore qui associe la violence au mépris royal. Au vers 4, <span class="cite">« croulent les bataillons en masse dans le feu »</span> achève la déshumanisation : <em>croulent</em> fait des soldats de simples objets qui tombent comme des dominos ; <em>en masse</em> les prive de toute individualité ; <em>le feu</em> renvoie à l'enfer. La rime <em>bleu/feu</em> condense l'antithèse : ciel serein vs enfer guerrier.</p>
+        <p>Au vers 5, Rimbaud <strong>personnifie</strong> la guerre : <span class="cite">« Une folie épouvantable broie »</span> — la folie est sujet de deux verbes d'action (<em>broie</em>, <em>fait</em>), transformant la guerre en monstre autonome. L'hyperbole <span class="cite">« cent milliers d'hommes »</span> et l'image <span class="cite">« un tas fumant »</span> (v.6) parachèvent la déshumanisation : les soldats ne sont plus des êtres mais une masse informe. La rupture des vers 7–8 (double tiret, exclamation <span class="cite">« Pauvres morts ! »</span>) provoque un basculement de registre vers le <strong>pathétique</strong>. La nature — <em>été, herbe, joie</em> — forme un cadre favorable et indifférent au massacre : une profanation de son œuvre. L'apostrophe lyrique <span class="cite">« Nature ! ô toi qui fis ces hommes saintement ! »</span> est capitale : Rimbaud dit que c'est la <em>nature</em> qui a créé les hommes — pas Dieu — révélant son refus du christianisme et préparant le mouvement suivant. La rime <em>fumant/saintement</em> clôt le premier mouvement sur un ultime contraste entre la destruction des hommes et la sainteté de la nature.</p>
+        <div class="tags">
+          <span class="procede">Anaphore « Tandis que » (subord. temporelle)</span>
+          <span class="procede">Métaphore dégradante « crachats »</span>
+          <span class="procede">Allitération en [r]</span>
+          <span class="procede">Antithèse ciel bleu / feu</span>
+          <span class="procede">Critique du Roi (ironie sonore mitraille/raille)</span>
+          <span class="procede">Déshumanisation (tas fumant)</span>
+          <span class="procede">Personnification de la folie</span>
+          <span class="procede">Apostrophe lyrique à la Nature</span>
+          <span class="procede">Rime fumant / saintement</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">2</div>Vers 9–14 · La critique de la religion : un Dieu complice et indifférent</div>
+        <p>La transition entre les deux mouvements est ménagée par un tiret et un glissement progressif amorcé dès le vers 8. Le vers 9 s'ouvre sur une fausse affirmation de foi : <span class="cite">« Il est un Dieu »</span>. L'article indéfini <em>un</em> — et non <em>le</em> — détache Dieu de toute majesté absolue et prépare ironiquement la satire. Ce portrait est ensuite construit par <strong>trois propositions relatives accumulées</strong> introduites par <em>qui</em> : chaque relative ajoute un nouveau chef d'accusation, transformant la description en réquisitoire. C'est une <strong>antiphrase blasphématoire</strong> — on énonce Dieu pour mieux le détruire.</p>
+        <p>Le champ lexical du faste — <span class="cite">« nappes damassées, encens, grands calices d'or »</span> — dénonce la richesse ostentatoire de l'Église, qui contraste violemment avec la misère de la guerre. Le parallèle avec le premier mouvement est voulu : comme le <em>Roi qui les raille</em> (v.3), Dieu <em>rit</em> (v.9) — même indifférence cynique face au massacre. Rimbaud place ainsi le roi et Dieu dans la même posture d'irresponsabilité. Puis vient le blasphème : <span class="cite">« dans le bercement des hosannah s'endort »</span> (v.11) — Dieu sommeille pendant le carnage, bercé par les prières. L'<strong>enjambement</strong> entre les vers 11 et 12 produit un effet de chute dramatique sur <em>« Et se réveille, quand… »</em> : Dieu ne s'éveille pas pour les hommes qui meurent, mais pour percevoir l'obole des pauvres.</p>
+        <p>Les mères du dernier tercet (v.12–14) incarnent la double victime : elles ont perdu leurs fils à la guerre — Rimbaud dit « mères » et non « épouses », car les soldats sont jeunes, ce qui renforce la pitié — et elles donnent encore <span class="cite">« un gros sou lié dans leur mouchoir »</span>, sacrifice dérisoire mais réel pour des femmes dans le dénuement. Le <span class="cite">« vieux bonnet noir »</span> dit à la fois le deuil et la pauvreté, contraste saisissant avec les <em>grands calices d'or</em> de l'Église. Le mouchoir condense deux souffrances en un seul objet : les larmes du deuil et l'exploitation de la misère. La rime finale <em>noir/mouchoir</em> referme le sonnet sur une note sombre et irrémédiable. En conclusion, le sonnet — forme noble — est détourné en arme de critique sociale et blasphème : Rimbaud démontre que l'indifférence de Dieu est aussi grave que la violence de la guerre.</p>
+        <div class="tags">
+          <span class="procede">Antiphrase blasphématoire</span>
+          <span class="procede">Article indéfini « un » Dieu</span>
+          <span class="procede">Trois relatives accumulées (réquisitoire)</span>
+          <span class="procede">Parallèle Roi / Dieu (raille / rit)</span>
+          <span class="procede">Champ lexical du faste (calices d'or)</span>
+          <span class="procede">Blasphème : Dieu « s'endort »</span>
+          <span class="procede">Enjambement (effet de chute)</span>
+          <span class="procede">Détail réaliste pathétique (bonnet noir, mouchoir)</span>
+          <span class="procede">Rime signifiante noir / mouchoir</span>
+          <span class="procede">Détournement du sonnet en critique sociale</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">5</span><h2>Question de grammaire probable</h2><span class="badge ml-auto">/2</span></div>
+    <div class="sec-body">
+      <p><strong>Fait de langue :</strong> Les propositions subordonnées relatives (v.9–13). Le GN <span class="cite">« un Dieu »</span> est expansé par trois relatives introduites par <span class="cite">« qui »</span> à valeur caractérisante. Leur accumulation produit un effet rhétorique de réquisitoire : chaque relative ajoute un nouveau chef d'accusation contre Dieu.</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--text-secondary);font-size:13px;">Question attendue : « Identifiez et analysez les subordonnées relatives des tercets. Quelle est leur fonction syntaxique et quel effet produisent-elles ? »</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">6</span><h2>Ouverture vers l'entretien</h2><span class="badge ml-auto">/5</span></div>
+    <div class="sec-body">
+      <div class="piste"><div class="piste-num">1</div><p>En quoi les <em>Cahiers de Douai</em> marquent-ils une émancipation de Rimbaud ? Comparer avec <span class="cite">« Ma Bohème »</span> ou <span class="cite">« Roman »</span> pour montrer la diversité des registres du recueil.</p></div>
+      <div class="piste"><div class="piste-num">2</div><p>Comment la forme du sonnet est-elle détournée de sa fonction traditionnelle pour devenir un instrument de critique sociale ? Rapport entre contrainte formelle et liberté de ton.</p></div>
+      <div class="piste"><div class="piste-num">3</div><p>La révolte de Rimbaud est-elle seulement politique ou aussi existentielle ? Ce poème annonce-t-il la <span class="cite">« Lettre du Voyant »</span> (1871) ?</p></div>
+    </div>
+  </div>
+
+</div><!-- /fiche 6 -->
+
+
+<!-- =========================================================
+     FICHE 7 — MA BOHÈME, RIMBAUD
+========================================================= -->
+<div class="fiche">
+
+  <div class="header">
+    <h1>Ma Bohème (Fantaisie) — Arthur Rimbaud</h1>
+    <p>Cahiers de Douai (1870) · Poésie du XIXe siècle · Parcours : Émancipations créatrices</p>
+  </div>
+
+  <div class="barème">
+    <div class="pt">Lecture <span>/2</span></div>
+    <div class="pt">Commentaire linéaire <span>/8</span></div>
+    <div class="pt">Grammaire <span>/2</span></div>
+    <div class="pt">Œuvre <span>/3</span></div>
+    <div class="pt">Entretien <span>/5</span></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">1</span><h2>Situation du texte</h2></div>
+    <div class="sec-body">
+      <p>Arthur Rimbaud compose ce sonnet à l'automne 1870, à seize ans, au cours de l'une de ses fugues depuis Charleville. Il figure dans les <span class="cite">Cahiers de Douai</span>, recueil manuscrit adressé à son professeur Georges Izambard. Le sous-titre <em>Fantaisie</em> annonce d'emblée le registre : ni plainte romantique ni révolte politique, mais une célébration joyeuse et légère de la liberté par la marche et la poésie.</p>
+      <p>Le poème s'inscrit dans l'objet d'étude <em>La poésie du XIXe siècle au XXIe siècle</em> et le parcours <em>Émancipations créatrices</em> : la misère matérielle y devient le terreau d'une vocation poétique librement assumée. À mettre en regard avec <span class="cite">« Le Mal »</span>, autre sonnet du recueil, pour mesurer l'amplitude des registres chez Rimbaud.</p>
+      <p style="margin-top:8px;font-size:12.5px;color:var(--text-secondary);">Schéma des rimes :</p>
+      <div class="rhyme-grid">
+        <span class="rh rh-a">crevées — A</span><span class="rh rh-b">idéal — B</span><span class="rh rh-b">féal — B</span><span class="rh rh-a">rêvées — A</span>
+        <span class="rh rh-c">trou — C</span><span class="rh rh-d">course — D</span><span class="rh rh-d">Ourse — D</span><span class="rh rh-c">frou-frou — C</span>
+        <span class="rh rh-e">routes — E</span><span class="rh rh-e">gouttes — E</span><span class="rh rh-f">vigueur — F</span>
+        <span class="rh rh-a">fantastiques — G</span><span class="rh rh-a">élastiques — G</span><span class="rh rh-f">coeur — F</span>
+      </div>
+      <p style="font-size:12.5px;color:var(--text-secondary);">Tercets en EEF GGF : schéma atypique qui rompt avec le sonnet pétrarquiste — la forme elle-même joue la liberté.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">2</span><h2>Lecture expressive</h2></div>
+    <div class="sec-body">
+      <div class="diction">
+        <div class="diction-tag">Entrain et légèreté dès le v.1</div>
+        <div class="diction-tag">Pause espiègle sur <span class="cite">« Oh ! là ! là ! »</span> (v.4)</div>
+        <div class="diction-tag">Sourire sur <span class="cite">« Petit-Poucet rêveur »</span> (v.6)</div>
+        <div class="diction-tag">Allongement doux sur <span class="cite">« frou-frou »</span> (v.8)</div>
+        <div class="diction-tag">Ralentissement méditatif aux tercets</div>
+        <div class="diction-tag">Chute légèrement burlesque : <span class="cite">« élastiques »</span> bien détaché</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">3</span><h2>Problématique</h2></div>
+    <div class="sec-body">
+      <div class="pb">Comment Rimbaud transfigure-t-il la misère en ivresse poétique, faisant de la bohème errante une véritable émancipation créatrice ?</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">4</span><h2>Explication linéaire — 4 mouvements</h2><span class="badge ml-auto">/8</span></div>
+    <div class="sec-body">
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">1</div>Vers 1–4 · La pauvreté transfigurée par le lyrisme</div>
+        <p>Le premier vers installe un cadre réaliste et délibérément trivial : <span class="cite">« les poings dans mes poches crevées »</span> est un geste concret, presque vulgaire, qui ancre le poème dans le quotidien d'un jeune fugitif. L'adjectif <span class="cite">« crevées »</span> suggère à la fois le dénuement matériel et une énergie qui déborde, qui crève les cadres.</p>
+        <p>Dès le vers 2, la métamorphose s'opère : <span class="cite">« Mon paletot aussi devenait idéal »</span> joue sur l'ambiguïté d'<em>idéal</em> — attribut du manteau devenu trop usé pour être réel, mais aussi adjectif platonicien renvoyant au monde des idées pures. L'apostrophe <span class="cite">« Muse ! »</span> et le terme médiéval <span class="cite">« féal »</span> (v.3) — vassalité au service de la poésie — élèvent d'un coup le vagabond au rang de chevalier servant des lettres. L'exclamation familière <span class="cite">« Oh ! là ! là ! »</span> (v.4) rompt aussitôt ce registre noble : l'autoportrait joue sur tous les registres à la fois.</p>
+        <div class="tags">
+          <span class="procede">Réalisme trivial → élévation lyrique</span>
+          <span class="procede">Ambiguïté sémantique d'« idéal »</span>
+          <span class="procede">Apostrophe à la Muse</span>
+          <span class="procede">Archaïsme « féal »</span>
+          <span class="procede">Oralité / exclamation familière</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">2</div>Vers 5–8 · La nuit comme demeure du poète</div>
+        <p>Le second quatrain joue sur l'intertextualité : <span class="cite">« Petit-Poucet rêveur »</span> (v.6) réécrit le conte de Perrault — au lieu de semer des cailloux pour retrouver son chemin, Rimbaud sème des <em>rimes</em>. L'adjectif <span class="cite">« rêveur »</span> transforme le personnage littéralement perdu en artiste volontairement errant. L'enjambement <span class="cite">« j'égrenais dans ma course / Des rimes »</span> mime par sa fracture le mouvement même de la marche.</p>
+        <p>La métaphore cosmique <span class="cite">« Mon auberge était à la Grande-Ourse »</span> (v.7) est saisissante : le ciel étoilé remplace le toit. Elle dit à la fois la pauvreté (pas d'auberge réelle) et la grandeur (l'univers entier comme foyer). L'onomatopée <span class="cite">« doux frou-frou »</span> (v.8) prête aux étoiles un bruissement textile, presque féminin : la nuit devient une présence sensuelle et bienveillante.</p>
+        <div class="tags">
+          <span class="procede">Intertextualité (Perrault)</span>
+          <span class="procede">Réécriture subversive</span>
+          <span class="procede">Enjambement signifiant</span>
+          <span class="procede">Métaphore cosmique</span>
+          <span class="procede">Onomatopée / synesthésie</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">3</div>Vers 9–11 · L'ivresse sensorielle de septembre</div>
+        <p>Les tercets marquent une pause contemplative : le poète s'arrête (<span class="cite">« assis au bord des routes »</span>) et écoute. La proposition relative <span class="cite">« Ces bons soirs de septembre où je sentais »</span> enchaîne deux subordonnées en <em>où</em> (v.10, v.12) qui déroulent une longue phrase nostalgique. La rosée sur le front (<span class="cite">« comme un vin de vigueur »</span>, v.11) est une métaphore sensorielle forte : la nature nourrit le poète comme le vin nourrit le corps — synesthésie du toucher et du goût, allitération en [v] (<em>vin, vigueur</em>) qui donne de l'énergie au vers.</p>
+        <p>L'adjectif <span class="cite">« bons »</span> révèle une mémoire affective heureuse, sans nostalgie mélancolique : c'est un passé que le poète revendique avec fierté.</p>
+        <div class="tags">
+          <span class="procede">Subordonnées en « où » (relatives)</span>
+          <span class="procede">Synesthésie toucher/goût</span>
+          <span class="procede">Allitération en [v]</span>
+          <span class="procede">Métaphore de l'ivresse naturelle</span>
+          <span class="procede">Mémoire affective</span>
+        </div>
+      </div>
+
+      <div class="mouvement">
+        <div class="mv-title"><div class="mv-num">4</div>Vers 12–14 · La chute burlesque : les élastiques comme lyres</div>
+        <p>La chute du sonnet est l'un des moments les plus caractéristiques du génie rimbaldien. Les <span class="cite">« ombres fantastiques »</span> (v.12) maintiennent un registre lyrique et mystérieux ; puis la comparaison <span class="cite">« Comme des lyres, je tirais les élastiques / De mes souliers blessés »</span> produit un effet burlesque irrésistible. La lyre — instrument d'Apollon, symbole de la poésie — est ravalée à l'élastique d'une chaussure trouée.</p>
+        <p>Or ce rabaissement n'est pas une autodérision triste : il dit que le poète fait de la poésie avec n'importe quoi, que l'art naît du manque. La personnification <span class="cite">« souliers blessés »</span> projette sur les objets la douleur du marcheur, que le corps lui-même nie. La clausule <span class="cite">« un pied près de mon coeur »</span> est une image finale à double lecture : posture concrète du cordonnier improvisant, et métaphore du corps entier voué à la marche et à la création.</p>
+        <div class="tags">
+          <span class="procede">Chute burlesque</span>
+          <span class="procede">Comparaison inversée (lyre → élastique)</span>
+          <span class="procede">Personnification pathétique</span>
+          <span class="procede">Registre élevé ≠ réalisme trivial</span>
+          <span class="procede">Image finale polysémique</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">5</span><h2>Question de grammaire probable</h2><span class="badge ml-auto">/2</span></div>
+    <div class="sec-body">
+      <p><strong>Fait de langue :</strong> Les propositions subordonnées relatives introduites par <span class="cite">« où »</span> (v.10 et v.12).</p>
+      <p style="margin-top:8px;">Le pronom relatif <span class="cite">« où »</span> reprend l'antécédent <span class="cite">« Ces bons soirs de septembre »</span> (v.9) : il cumule une valeur temporelle (<em>quand</em>) et spatiale (<em>dans lesquels</em>), créant une ambiance enveloppante. Les deux relatives s'enchaînent en amplification : la première (v.10–11) développe la sensation physique, la seconde (v.12–14) la pratique poétique. Leur longueur mimétique prolonge l'instant, comme si le souvenir refusait de s'achever.</p>
+      <p style="margin-top:8px;font-style:italic;color:var(--text-secondary);font-size:13px;">Question attendue : « Identifiez la nature et la fonction des propositions introduites par "où" aux vers 10 et 12. Quel est leur antécédent ? Quelle valeur sémantique le pronom "où" apporte-t-il ici ? »</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><span class="badge">6</span><h2>Ouverture vers l'entretien</h2><span class="badge ml-auto">/5</span></div>
+    <div class="sec-body">
+      <div class="piste"><div class="piste-num">1</div><p>En quoi ce poème illustre-t-il la notion d'<em>émancipation créatrice</em> propre au parcours ? La bohème n'est pas subie mais <em>choisie</em> comme condition de l'invention poétique : en quoi cette posture annonce-t-elle le « Je est un autre » de la Lettre du Voyant ?</p></div>
+      <div class="piste"><div class="piste-num">2</div><p>Comment le mélange des registres — lyrique, burlesque, trivial — est-il lui-même une forme d'émancipation formelle ? Comparer avec <span class="cite">« Le Mal »</span> (même recueil) qui mobilise la même forme du sonnet à des fins opposées.</p></div>
+      <div class="piste"><div class="piste-num">3</div><p>Quelle image du poète ce texte propose-t-il ? Le poète comme vagabond, comme artisan du bric-à-brac, comme héritier parodique du romantisme (la Muse, les étoiles) — en quoi cette figure est-elle nouvelle dans la tradition lyrique française ?</p></div>
+    </div>
+  </div>
+
+</div><!-- /fiche 7 -->
+
+</body>
+</html>
