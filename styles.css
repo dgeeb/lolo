@@ -818,4 +818,229 @@ html.dark-mode .tab:hover {
   h3 {
     page-break-after: avoid;
   }
+
+  /* Hide admin UI in print */
+  #admin-fab,
+  #admin-bar,
+  #admin-modal,
+  .admin-toast {
+    display: none !important;
+  }
+}
+
+/* ── Admin Edit Mode ──────────────────────────────────────────────────────── */
+
+#admin-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  z-index: 900;
+  transition: opacity 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+#admin-fab:hover { transform: scale(1.1); }
+#admin-fab.hidden { opacity: 0; pointer-events: none; }
+
+#admin-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--purple);
+  color: #fff;
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.25rem;
+  z-index: 1000;
+  box-shadow: 0 -4px 20px rgba(83, 74, 183, 0.35);
+  flex-wrap: wrap;
+}
+
+#admin-bar.active { display: flex; }
+
+.admin-bar-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-right: auto;
+}
+
+#admin-bar button {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#admin-bar button:hover { background: rgba(255, 255, 255, 0.32); }
+#admin-bar button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Push content above the admin bar */
+body:has(#admin-bar.active) .app {
+  padding-bottom: 4rem;
+}
+
+/* Editable zones */
+.admin-editable {
+  outline: 2px dashed rgba(83, 74, 183, 0.35);
+  border-radius: 6px;
+  min-height: 1.5em;
+  cursor: text;
+  transition: outline-color 0.15s;
+}
+
+.admin-editable:focus {
+  outline: 2px solid var(--purple);
+  background: var(--purple-light);
+}
+
+html.dark-mode .admin-editable:focus {
+  background: rgba(83, 74, 183, 0.14);
+}
+
+/* Modal */
+#admin-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+#admin-modal.active { display: flex; }
+
+#admin-modal-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 1.75rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-lift);
+}
+
+#admin-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+#admin-modal-body p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.55;
+}
+
+#admin-modal-body a {
+  color: var(--purple);
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  font-size: 0.9rem;
+}
+
+#admin-modal-body code {
+  background: var(--bg-tertiary);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+
+#admin-modal-body input[type="password"],
+#admin-modal-body input[type="text"] {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  margin-bottom: 0.65rem;
+  display: block;
+  font-family: var(--font-sans);
+}
+
+#admin-modal-body input:focus {
+  outline: 2px solid var(--purple);
+  border-color: var(--purple);
+}
+
+#admin-modal-body button {
+  width: 100%;
+  padding: 0.7rem;
+  background: var(--purple);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: 0.3rem;
+  transition: opacity 0.15s;
+  font-family: var(--font-sans);
+}
+
+#admin-modal-body button:hover { opacity: 0.88; }
+
+.admin-btn-danger {
+  background: #dc2626 !important;
+  margin-top: 0.5rem !important;
+}
+
+.admin-hint {
+  font-size: 0.82rem !important;
+  margin-top: 0.75rem !important;
+  margin-bottom: 0 !important;
+}
+
+.admin-hint a { color: var(--purple); }
+
+/* Toast */
+.admin-toast {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.65rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-lift);
+  z-index: 3000;
+  animation: adminToastIn 0.25s ease;
+  transition: opacity 0.4s;
+  max-width: calc(100vw - 3rem);
+}
+
+.toast-error   { border-color: #dc2626; color: #dc2626; }
+.toast-success { border-color: #16a34a; color: #16a34a; }
+.toast-fade    { opacity: 0; }
+
+@keyframes adminToastIn {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
 }
