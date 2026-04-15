@@ -52,29 +52,69 @@
       transform: translateY(-1px);
       border-color: var(--purple);
     }
+
+    .home-quote {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      padding: 1.5rem 1rem 0.5rem;
+      opacity: 0.85;
+    }
+
+    .home-author {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
   </style>
 </head>
 <body>
   <div class="global-nav">
     <div class="nav-container">
-      <div class="nav-title">Fiches de Lecture</div>
       <button class="dark-mode-toggle" id="dark-mode-btn" title="Activer le mode sombre">🌙</button>
       <ul class="nav-links"></ul>
     </div>
   </div>
 
   <main class="home">
+    <div class="home-quote">
+      « Les chefs-d'œuvre ne s'admirent pas — ils se comprennent. »
+    </div>
+
     <section class="home-card">
-      <h1>Bienvenue</h1>
-      <p>Accédez directement aux fiches de lecture en ligne.</p>
+      <div class="home-author">Arthur Rimbaud</div>
       <div class="home-links">
-        <a class="home-link" href="fiche_le_mal_rimbaud_v2.html">Le Mal — Arthur Rimbaud</a>
-        <a class="home-link" href="fiche_ma_boheme_rimbaud.html">Ma Bohème — Arthur Rimbaud</a>
-        <a class="home-link" href="fiche_musset_III3_temoin_cache_v2.html">On ne badine pas avec l'amour, III.3 — Alfred de Musset</a>
-        <a class="home-link" href="fiche_menteur_I3_v2.html">Le Menteur, I.3 — Pierre Corneille</a>
-        <a class="home-link" href="colloque-sentimental-v2.html">Colloque sentimental — Paul Verlaine</a>
-        <a class="home-link" href="fiche_menteur_III5_v2.html">Le Menteur, III.5 — Pierre Corneille</a>
-        <a class="home-link" href="fiche_menteur_V23_v2.html">Le Menteur, V.2–3 — Pierre Corneille</a>
+        <a class="home-link" href="fiche_le_mal_rimbaud_v2.html">Le Mal</a>
+        <a class="home-link" href="fiche_ma_boheme_rimbaud.html">Ma Bohème</a>
+      </div>
+    </section>
+
+    <section class="home-card">
+      <div class="home-author">Pierre Corneille — <em>Le Menteur</em></div>
+      <div class="home-links">
+        <a class="home-link" href="fiche_menteur_I3_v2.html">Acte I, scène 3</a>
+        <a class="home-link" href="fiche_menteur_III5_v2.html">Acte III, scène 5</a>
+        <a class="home-link" href="fiche_menteur_V23_v2.html">Acte V, scènes 2–3</a>
+      </div>
+    </section>
+
+    <section class="home-card">
+      <div class="home-author">Alfred de Musset</div>
+      <div class="home-links">
+        <a class="home-link" href="fiche_musset_III3_temoin_cache_v2.html">On ne badine pas avec l'amour, III.3</a>
+      </div>
+    </section>
+
+    <section class="home-card">
+      <div class="home-author">Paul Verlaine</div>
+      <div class="home-links">
+        <a class="home-link" href="colloque-sentimental-v2.html">Colloque sentimental</a>
       </div>
     </section>
   </main>

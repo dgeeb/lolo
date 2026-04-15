@@ -86,7 +86,6 @@ Application de fiches de lecture pour les épreuves de français (bac). Chaque f
 
 <div class="global-nav">
   <div class="nav-container">
-    <div class="nav-title">Fiches de Lecture</div>
     <button class="dark-mode-toggle" id="dark-mode-btn" title="Activer le mode sombre">🌙</button>
     <ul class="nav-links"></ul>   <!-- TOUJOURS VIDE — script.js remplit automatiquement -->
   </div>
