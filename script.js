@@ -70,14 +70,14 @@ function exportPDF() {
 // ── Centralised navigation ──────────────────────────────────────────────────
 // Add / remove entries here — every page updates automatically.
 const NAV_LINKS = [
-  { href: 'index.html',                          label: '🏠 Accueil' },
-  { href: 'fiche_le_mal_rimbaud_v2.html',        label: 'Le Mal' },
-  { href: 'fiche_ma_boheme_rimbaud.html',        label: 'Ma Bohème' },
+  { href: 'index.html',                             label: '🏠 Accueil' },
+  { href: 'fiche_le_mal_rimbaud_v2.html',           label: 'Le Mal' },
+  { href: 'fiche_ma_boheme_rimbaud.html',           label: 'Ma Bohème' },
   { href: 'fiche_musset_III3_temoin_cache_v2.html', label: 'Musset III.3' },
-  { href: 'fiche_menteur_I3_v2.html',            label: 'Le Menteur I.3' },
-  { href: 'colloque-sentimental-v2.html',        label: 'Colloque sentimental' },
-  { href: 'fiche_menteur_III5_v2.html',          label: 'Le Menteur III.5' },
-  { href: 'fiche_menteur_V23_v2.html',           label: 'Le Menteur V.2-3' },
+  { href: 'fiche_menteur_I3_v2.html',               label: 'Le Menteur I.3' },
+  { href: 'fiche_menteur_III5_v2.html',             label: 'Le Menteur III.5' },
+  { href: 'fiche_menteur_V23_v2.html',              label: 'Le Menteur V.2-3' },
+  { href: 'colloque-sentimental-v2.html',           label: 'Colloque sentimental' },
 ];
 
 function buildNav() {
