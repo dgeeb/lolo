@@ -67,15 +67,24 @@ function exportPDF() {
   }, 500);
 }
 
-// Set active nav link based on current page
-document.addEventListener('DOMContentLoaded', () => {
+// ── Centralised navigation ──────────────────────────────────────────────────
+// Add / remove entries here — every page updates automatically.
+const NAV_LINKS = [
+  { href: 'index.html',                          label: '🏠 Accueil' },
+  { href: 'fiche_le_mal_rimbaud_v2.html',        label: 'Le Mal' },
+  { href: 'fiche_ma_boheme_rimbaud.html',        label: 'Ma Bohème' },
+  { href: 'fiche_musset_III3_temoin_cache_v2.html', label: 'Musset III.3' },
+  { href: 'fiche_menteur_I3_v2.html',            label: 'Le Menteur I.3' },
+  { href: 'colloque-sentimental-v2.html',        label: 'Colloque sentimental' },
+];
+
+function buildNav() {
+  const ul = document.querySelector('.nav-links');
+  if (!ul) return;
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
-  });
-});
+  ul.innerHTML = NAV_LINKS.map(({ href, label }) =>
+    `<li><a href="${href}"${href === currentPage ? ' class="active"' : ''}>${label}</a></li>`
+  ).join('');
+}
+
+document.addEventListener('DOMContentLoaded', buildNav);
