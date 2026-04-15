@@ -77,6 +77,7 @@ const NAV_LINKS = [
   { href: 'fiche_menteur_I3_v2.html',            label: 'Le Menteur I.3' },
   { href: 'colloque-sentimental-v2.html',        label: 'Colloque sentimental' },
   { href: 'fiche_menteur_III5_v2.html',          label: 'Le Menteur III.5' },
+  { href: 'fiche_menteur_V23_v2.html',           label: 'Le Menteur V.2-3' },
 ];
 
 function buildNav() {
