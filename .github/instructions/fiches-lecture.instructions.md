@@ -5,6 +5,64 @@ applyTo: "*.html"
 
 # Fiches de Lecture — Instructions de création
 
+---
+
+## Contexte pédagogique — À appliquer pour tout contenu de fiche
+
+**Public :** Élève de première générale préparant l'oral du bac de français 2026 (EAF).  
+**Les textes sont issus du descriptif officiel de l'élève.**
+
+### Structure du contenu des 6 sections
+
+1. **Situation du texte** — auteur (dates, courant littéraire), œuvre (date, genre, contexte), place de l'extrait dans l'œuvre, objet d'étude, parcours associé.
+
+2. **Lecture expressive** — mots-clés de diction concrets : ton général, rythme, pauses notables, effets à produire sur des vers ou répliques spécifiques. Citer les passages concernés avec `<span class="cite">`.
+
+3. **Problématique** — une question centrale qui oriente toute l'explication linéaire. Elle doit être :
+   - Simple et accessible pour un lycéen
+   - Suffisamment riche pour tenir 8 minutes d'oral
+   - Ancrée dans les enjeux du parcours associé
+   - **Faire une recherche approfondie** : éviter les questions trop génériques ("comment l'auteur exprime-t-il..."), préférer une tension, une apparente contradiction, un paradoxe du texte.
+
+4. **Explication linéaire** — 2 ou 3 mouvements maximum, chacun avec :
+   - Un titre clair indiquant le mouvement du texte
+   - Les procédés littéraires nommés précisément (figure de style, syntaxe, registre, isotopie, etc.)
+   - Pour chaque procédé : citation courte + analyse de l'effet produit → **éviter la paraphrase**
+   - Des balises `<span class="cite">` pour les citations, `<span class="procede">` pour les procédés dans les `.tags`
+
+5. **Grammaire** — fait de langue notable du passage, parmi les points au programme :
+   - Négation, interrogation directe/indirecte, propositions relatives (déterminatives vs explicatives), subordonnées circonstancielles, mode et temps verbaux
+   - Format : relevé du fait de langue → analyse syntaxique → valeur/effet dans le texte
+   - Anticiper une question possible à la fin de la section
+
+6. **Entretien** — 2 ou 3 pistes de réflexion sur l'œuvre complète ou le parcours :
+   - Comparaison avec d'autres textes du corpus
+   - Mise en perspective historique ou culturelle
+   - Dimension philosophique ou morale du texte
+
+### Critères de qualité du contenu
+
+| Critère | Barème | Exigence |
+|---------|--------|----------|
+| Lecture expressive | /2 | Instructions de diction précises et applicables |
+| Commentaire linéaire | /8 | Procédés nommés + interprétation, pas de paraphrase |
+| Grammaire | /2 | Fait de langue identifié + analyse + valeur |
+| Œuvre | /3 | Situer l'extrait dans l'œuvre et le parcours |
+| Entretien | /5 | Pistes personnelles ancrées dans le texte |
+
+**Langue :** Français, registre soutenu mais accessible à un lycéen de première.  
+**Vocabulaire littéraire :** tonalité, registre, figures de style (anaphore, chiasme, hyperbole, périphrase, litote, euphémisme, gradation, antithèse, oxymore, métaphore, comparaison, personnification…), isotopie, polyptote, paronymie, stichomythie, aparté, didascalie, etc.
+
+### Notes du panel
+
+Le panel "Notes d'oral" est un aide-mémoire synthétique :
+- Chaque note-block correspond à une section de la fiche
+- Les `<span class="note-kw">` signalent les mots à retenir absolument
+- Les `<span class="note-cite">` pour les citations à mémoriser
+- Ajouter `⚠` devant la note de grammaire pour signaler qu'elle peut tomber à l'oral
+
+---
+
 ## Contexte du projet
 
 Application de fiches de lecture pour les épreuves de français (bac). Chaque fiche est un fichier HTML autonome qui utilise les fichiers partagés `styles.css` et `script.js`. La navigation est **entièrement gérée par `script.js`** via le tableau `NAV_LINKS` — il ne faut JAMAIS écrire de liens `<li>` manuellement dans le HTML.
